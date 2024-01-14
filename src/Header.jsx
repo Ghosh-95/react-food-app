@@ -3,7 +3,7 @@ export default function HeaderComponent() {
         <>
             <header className="header">
                 <figure className="logo-container">
-                    <img className="logo-img" src="./public/img/food-app-logo.png" alt="food-app-logo" />
+                    <img className="logo-img" src="/img/food-app-logo.png" alt="food-app-logo" />
                 </figure>
 
                 <ul className="nav-items">
@@ -13,7 +13,7 @@ export default function HeaderComponent() {
                 </ul>
 
                 <button className="btn-cart">
-                    <img className="cart-img" src="./public/img/cart-logo.png" alt="cart-image" />
+                    <img className="cart-img" src="/img/cart-logo.png" alt="cart-image" />
                 </button>
             </header>
         </>
