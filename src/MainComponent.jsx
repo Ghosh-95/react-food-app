@@ -1,37 +1,60 @@
 import SearchComponent from './Search';
+import dataObj from './data';
+
+function generateStar(num) {
+    let star = '';
+    for (let i = 0; i < Math.round(num); i++) {
+        star += '⭐';
+    }
+
+    return star;
+};
 
 export default function MainComponent() {
+
+
     return (
         <>
             <main>
                 <SearchComponent />
                 <div className="res-container">
-                    <RestaurantCard />
-                    <RestaurantCard />
-                    <RestaurantCard />
+                    {/* <RestaurantCard resData={dataObj[0]} />
+                    <RestaurantCard resData={dataObj[1]} />
+                    <RestaurantCard resData={dataObj[2]} />
+                    <RestaurantCard resData={dataObj[3]} />
+                    <RestaurantCard resData={dataObj[4]} />
+                    <RestaurantCard resData={dataObj[5]} /> */}
+
+                    {
+                        dataObj.map(data => (<RestaurantCard resData={data} />))
+                    }
                 </div>
             </main>
         </>
     )
 };
 
-function RestaurantCard() {
+function RestaurantCard(props) {
+    const { resData } = props;
+    const { foodName, cousine, price, rating, foodImg, imgAlt } = resData.food;
+
     return (
         <>
             <div className='res-cards'>
                 <div>
-                    <img src="https://www.yummyoyummy.com/wp-content/uploads/2021/09/IMG_0446-1536x2048.jpg" alt="biriyani-image" />
+                    <img src={foodImg} alt={imgAlt} />
+                    <button id='order-btn'>Order</button>
                 </div>
 
                 <div className='card-details'>
-                    <h4>Canteen Foods 🏪</h4>
-                    <h3 style={{ color: '#ee5732' }}>Chicken Biryani</h3>
-                    <p>Price ₹299</p>
-                    <p>Rating: ⭐⭐⭐⭐</p>
-                    <p>Cousine: Biryani, Chicken, Raita...</p>
+                    <h4>{resData.res_name} 🏪</h4>
+                    <h3 style={{ color: '#ee5732' }}>{foodName}</h3>
+                    <p>Price: {price}</p>
+                    <p>Rating: {generateStar(rating)}</p>
+                    <p>{cousine}</p>
                 </div>
 
             </div>
         </>
-    )
-}
+    );
+};
