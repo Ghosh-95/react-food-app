@@ -26,7 +26,7 @@ export default function MainComponent() {
                     <RestaurantCard resData={dataObj[5]} /> */}
 
                     {
-                        dataObj.map(data => (<RestaurantCard resData={data} />))
+                        dataObj.map((data, i) => (<RestaurantCard key={"Card" + (i + 1)} resData={data} />))
                     }
                 </div>
             </main>
@@ -34,8 +34,7 @@ export default function MainComponent() {
     )
 };
 
-function RestaurantCard(props) {
-    const { resData } = props;
+function RestaurantCard({ resData }) {
     const { foodName, cousine, price, rating, foodImg, imgAlt } = resData.food;
 
     return (
