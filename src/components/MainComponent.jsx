@@ -1,15 +1,6 @@
 import SearchComponent from './Search';
 import dataObj from '../utils/data';
-
-function generateStar(num) {
-    let star = '';
-    for (let i = 0; i < Math.round(num); i++) {
-        star += '⭐';
-    }
-
-    return star;
-};
-
+import rateStar from '../utils/rating';
 export default function MainComponent() {
 
 
@@ -50,7 +41,7 @@ function RestaurantCard({ resData }) {
                     <h4>{resData.res_name} 🏪</h4>
                     <h3 style={{ color: '#ee5732' }}>{foodName}</h3>
                     <p>Price: {price}</p>
-                    <p>Rating: {generateStar(rating)}</p>
+                    <p>Rating: {rateStar(rating)}</p>
                     <p>{cousine}</p>
                 </div>
 

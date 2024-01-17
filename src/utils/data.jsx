@@ -106,7 +106,7 @@ const dataObj = [
             foodName: "Grilled Chicken",
             cousine: "Chicken, Salads, Indian",
             price: "₹399",
-            rating: 3.6,
+            rating: 4.6,
             foodImg: "https://images.pexels.com/photos/106343/pexels-photo-106343.jpeg?auto=compress&cs=tinysrgb&w=600",
             imgAlt: "Close-up Photo of Grilled Chicken  Stock Photo",
         },
