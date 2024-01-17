@@ -17,6 +17,7 @@ export default function MainComponent() {
         <>
             <main>
                 <SearchComponent />
+                <button className='filter-btn'>Top Restaurants</button>
                 <div className="res-container">
                     {/* <RestaurantCard resData={dataObj[0]} />
                     <RestaurantCard resData={dataObj[1]} />

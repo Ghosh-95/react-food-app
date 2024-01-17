@@ -3,7 +3,8 @@ export default function SearchComponent() {
         <>
             <div className="search-container">
                 <input type="search" name="search-food" id="search-bar" />
-                <label htmlFor="search-bar">Search</label>
+                <label htmlFor="search-bar"></label>
+                <button className="search-btn">Search</button>
             </div>
         </>
     )

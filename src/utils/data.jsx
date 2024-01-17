@@ -74,6 +74,46 @@ const dataObj = [
 
     },
 
+    {
+        res_name: "Veg Bogey",
+        food: {
+            foodName: "Assorted Salads on Bowls",
+            cousine: "Salads, Continental",
+            price: "₹249",
+            rating: 3.9,
+            foodImg: "https://images.pexels.com/photos/1640773/pexels-photo-1640773.jpeg?auto=compress&cs=tinysrgb&w=600",
+            imgAlt: "Assorted Salads on Bowls Photo",
+        },
+
+    },
+
+    {
+        res_name: "Nirma Foods",
+        food: {
+            foodName: "Salads",
+            cousine: "Salads, Indian",
+            price: "₹129",
+            rating: 3.6,
+            foodImg: "https://images.pexels.com/photos/2097090/pexels-photo-2097090.jpeg?auto=compress&cs=tinysrgb&w=600",
+            imgAlt: "Salads on Bowls Photo",
+        },
+
+    },
+
+    {
+        res_name: "Food Corner",
+        food: {
+            foodName: "Grilled Chicken",
+            cousine: "Chicken, Salads, Indian",
+            price: "₹399",
+            rating: 3.6,
+            foodImg: "https://images.pexels.com/photos/106343/pexels-photo-106343.jpeg?auto=compress&cs=tinysrgb&w=600",
+            imgAlt: "Close-up Photo of Grilled Chicken  Stock Photo",
+        },
+
+    },
+
+
 
 ];
 
