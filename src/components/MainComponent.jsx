@@ -1,5 +1,5 @@
 import SearchComponent from './Search';
-import dataObj from '../database/data';
+import dataObj from '../utils/data';
 
 function generateStar(num) {
     let star = '';
