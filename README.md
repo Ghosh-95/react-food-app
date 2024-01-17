@@ -9,3 +9,4 @@ This app is made while learning React from Namaste React website.
 - Used `Funcitonal Component` to work with JSX.
 - Used curly-brace to add inline CSS into markup.
 - Used `props` to render data dynamically.
+- Used `Hooks` - (Hooks are just normal JS functions)
