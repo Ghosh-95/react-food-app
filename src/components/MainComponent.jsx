@@ -1,13 +1,16 @@
 import SearchComponent from './Search';
 import dataObj from '../utils/data';
 import RestaurantCard from './Card';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 
-
+// https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&is-seo-homepage-enabled=true
 export default function MainComponent() {
     const [dataObject, setDataObject] = useState(dataObj);
-    console.log(dataObject);
+
+    useEffect(() => {
+        console.log("useEffect hook got called.");
+    }, []);
 
     return (
         <>
@@ -19,12 +22,6 @@ export default function MainComponent() {
                 }}>Top Restaurants</button>
                 <button className="filter-btn" style={{ marginLeft: "1rem" }} onClick={() => setDataObject(dataObj)}>All Restaurants</button>
                 <div className="res-container">
-                    {/* <RestaurantCard resData={dataObj[0]} />
-                    <RestaurantCard resData={dataObj[1]} />
-                    <RestaurantCard resData={dataObj[2]} />
-                    <RestaurantCard resData={dataObj[3]} />
-                    <RestaurantCard resData={dataObj[4]} />
-                    <RestaurantCard resData={dataObj[5]} /> */}
 
                     {
                         dataObject.map((data, i) => (<RestaurantCard key={"Card" + (i + 1)} resData={data} />))
