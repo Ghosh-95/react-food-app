@@ -1,16 +1,22 @@
 import SearchComponent from './Search';
-import dataObj from '../utils/data';
+import { dataObj, ASSET_URL } from '../utils/data';
 import RestaurantCard from './Card';
 import { useEffect, useState } from 'react';
 
 
-// https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&is-seo-homepage-enabled=true
 export default function MainComponent() {
     const [dataObject, setDataObject] = useState(dataObj);
 
     useEffect(() => {
-        console.log("useEffect hook got called.");
+        fetchData();
     }, []);
+
+    async function fetchData() {
+        const response = await fetch('https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.572646&lng=88.36389500000001&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING');
+        const { data } = await response.json();
+        const cardData = data.cards[4].card.card.gridElements.infoWithStyle.restaurants;
+        console.log(cardData);
+    }
 
     return (
         <>
@@ -28,6 +34,8 @@ export default function MainComponent() {
                     }
                 </div>
             </main>
+
+            {/* <img src={`${ASSET_URL}/oblqcc3ecvw4q9f7ukec`} alt="" /> */}
         </>
     )
 };
