@@ -118,5 +118,5 @@ const dataObj = [
 ];
 
 
-const ASSET_URL = 'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660';
+const ASSET_URL = 'https://media-assets.swiggy.com/swiggy/image/upload';
 export { dataObj, ASSET_URL };

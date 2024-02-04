@@ -1,11 +1,10 @@
 import SearchComponent from './Search';
-import { dataObj, ASSET_URL } from '../utils/data';
 import RestaurantCard from './Card';
 import { useEffect, useState } from 'react';
 
 
 export default function MainComponent() {
-    const [dataObject, setDataObject] = useState(dataObj);
+    const [dataObject, setDataObject] = useState([]);
 
     useEffect(() => {
         fetchData();
@@ -16,6 +15,7 @@ export default function MainComponent() {
         const { data } = await response.json();
         const cardData = data.cards[4].card.card.gridElements.infoWithStyle.restaurants;
         console.log(cardData);
+        setDataObject(cardData);
     }
 
     return (
@@ -30,7 +30,7 @@ export default function MainComponent() {
                 <div className="res-container">
 
                     {
-                        dataObject.map((data, i) => (<RestaurantCard key={"Card" + (i + 1)} resData={data} />))
+                        dataObject.map(data => (<RestaurantCard key={data.info.id} props={data} />))
                     }
                 </div>
             </main>

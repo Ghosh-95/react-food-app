@@ -1,21 +1,24 @@
 import rateStar from '../utils/rating';
-export default function RestaurantCard({ resData }) {
-    const { foodName, cousine, price, rating, foodImg, imgAlt } = resData.food;
+import { ASSET_URL } from '../utils/data';
+
+
+export default function RestaurantCard({ props: { info } }) {
 
     return (
         <>
             <div className='res-cards'>
                 <div>
-                    <img src={foodImg} alt={imgAlt} />
+                    <img src={`${ASSET_URL} / ${info.cloudinaryImageId}`} alt={info.cuisines.join(', ') + ' image'} />
                     <button id='order-btn'>Order</button>
                 </div>
 
                 <div className='card-details'>
-                    <h4>{resData.res_name} 🏪</h4>
-                    <h3 style={{ color: '#ee5732' }}>{foodName}</h3>
-                    <p>Price: {price}</p>
-                    <p>Rating: {rateStar(rating)}</p>
-                    <p>{cousine}</p>
+                    <h4>{info.name} 🏪</h4>
+                    <h3 style={{ color: '#ee5732' }}>😋</h3>
+                    <p>Price: {info.costForTwo}</p>
+                    <p>Rating: {rateStar(info.avgRating
+                    )}</p>
+                    <p>{info.cuisines.join(', ')}</p>
                 </div>
 
             </div>
