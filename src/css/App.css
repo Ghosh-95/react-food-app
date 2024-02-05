@@ -69,12 +69,22 @@ button .cart-img {
   width: 2rem;
 }
 
-.search-container {
+.shimmer-main {
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.search-container,
+.shimmer_search-container {
   width: 80%;
   padding-top: 3rem;
   font-size: 1.2rem;
   color: #fff;
   margin: 0 auto;
+}
+
+.shimmer_search-container {
+  background-color: #b4b4b4;
 }
 
 #search-bar {
@@ -91,6 +101,17 @@ button .cart-img {
   background-color: #ee5732;
   font-size: 1rem;
   padding: 0.5rem 0.8rem;
+}
+
+.shimmer_buttons {
+  width: 80%;
+  margin: 1.5rem auto;
+}
+
+.shimmer_restaurant {
+  padding: 0.5rem 5rem;
+  background-color: #b4b4b4;
+  margin-right: 2rem;
 }
 
 @media (min-width: 740px) {
@@ -114,7 +135,8 @@ button .cart-img {
   border-width: 1px;
 }
 
-.res-container {
+.res-container,
+.shimmer_cards-container {
   max-width: 70rem;
   margin: 5rem auto;
   display: flex;
@@ -124,13 +146,22 @@ button .cart-img {
   gap: 2rem;
 }
 
-.res-cards {
+.shimmer_cards-container {
+  color: #fff;
+}
+
+.res-cards,
+.shimmer_card {
   border-radius: 0.3rem;
   width: 18rem;
   height: 24rem;
   overflow: hidden;
   transition: all 0.2s ease-in-out;
   position: relative;
+}
+
+.shimmer_card {
+  background-color: #b4b4b4;
 }
 
 #order-btn {

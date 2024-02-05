@@ -1,18 +1,20 @@
 export default function Shimmer() {
     return (
-        <main>
-            <div className="shimmer-search">
-                <span className="shimmer-input-search"></span>
-                <span className="shimmer-btn-search"></span>
+        <main className="shimmer-main">
+            <div className="shimmer_search-container"></div>
+
+            <div className="shimmer_buttons">
+                <span className="shimmer_restaurant"></span>
+                <span className="shimmer_restaurant"></span>
             </div>
 
-            <span className="shimmer-top-restaurant"></span>
-            <span className="shimmer-all-restaurant"></span>
-
-            <div className="shimmer-cards-container">
-                <div className="shimmer-card"></div>
-                <div className="shimmer-card"></div>
-                <div className="shimmer-card"></div>
+            <div className="shimmer_cards-container">
+                <div className="shimmer_card"></div>
+                <div className="shimmer_card"></div>
+                <div className="shimmer_card"></div>
+                <div className="shimmer_card"></div>
+                <div className="shimmer_card"></div>
+                <div className="shimmer_card"></div>
             </div>
         </main>
     )
