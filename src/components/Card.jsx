@@ -8,8 +8,7 @@ export default function RestaurantCard({ props: { info } }) {
         <>
             <div className='res-cards'>
                 <div>
-                    <img src={`${ASSET_URL}/${info.cloudinaryImageId}`} width={600} alt={info.cuisines.join(', ') + ' image'} />
-                    <button id='order-btn'>Order</button>
+                    <img src={`${ASSET_URL}/${info.cloudinaryImageId}`} alt={info.cuisines.join(', ') + ' image'} />
                 </div>
 
                 <div className='card-details'>
@@ -20,6 +19,7 @@ export default function RestaurantCard({ props: { info } }) {
                     )}</p>
                     <p>{info.cuisines.join(', ')}</p>
                 </div>
+                <button id='order-btn'>Order</button>
 
             </div>
         </>
