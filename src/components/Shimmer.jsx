@@ -9,12 +9,54 @@ export default function Shimmer() {
             </div>
 
             <div className="shimmer_cards-container">
-                <div className="shimmer_card"></div>
-                <div className="shimmer_card"></div>
-                <div className="shimmer_card"></div>
-                <div className="shimmer_card"></div>
-                <div className="shimmer_card"></div>
-                <div className="shimmer_card"></div>
+                <div className="shimmer_card">
+                    <div className="shimmer_card-image"></div>
+                    <div className="shimmer_texts"></div>
+                    <div className="shimmer_texts"></div>
+                    <div className="shimmer_texts"></div>
+
+                    <div className="shimmer_order-btn"></div>
+                </div>
+                <div className="shimmer_card">
+                    <div className="shimmer_card-image"></div>
+                    <div className="shimmer_texts"></div>
+                    <div className="shimmer_texts"></div>
+                    <div className="shimmer_texts"></div>
+
+                    <div className="shimmer_order-btn"></div>
+                </div>
+                <div className="shimmer_card">
+                    <div className="shimmer_card-image"></div>
+                    <div className="shimmer_texts"></div>
+                    <div className="shimmer_texts"></div>
+                    <div className="shimmer_texts"></div>
+
+                    <div className="shimmer_order-btn"></div>
+                </div>
+                <div className="shimmer_card">
+                    <div className="shimmer_card-image"></div>
+                    <div className="shimmer_texts"></div>
+                    <div className="shimmer_texts"></div>
+                    <div className="shimmer_texts"></div>
+
+                    <div className="shimmer_order-btn"></div>
+                </div>
+                <div className="shimmer_card">
+                    <div className="shimmer_card-image"></div>
+                    <div className="shimmer_texts"></div>
+                    <div className="shimmer_texts"></div>
+                    <div className="shimmer_texts"></div>
+
+                    <div className="shimmer_order-btn"></div>
+                </div>
+                <div className="shimmer_card">
+                    <div className="shimmer_card-image"></div>
+                    <div className="shimmer_texts"></div>
+                    <div className="shimmer_texts"></div>
+                    <div className="shimmer_texts"></div>
+
+                    <div className="shimmer_order-btn"></div>
+                </div>
             </div>
         </main>
     )
