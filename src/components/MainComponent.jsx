@@ -19,13 +19,7 @@ export default function MainComponent() {
         setDataObject(cardData);
     };
 
-    if (dataObject.length === 0) {
-        return (
-            <Shimmer />
-        );
-    };
-
-    return (
+    return dataObject.length === 0 ? (<Shimmer />) : (
         <>
             <main>
                 <SearchComponent />
