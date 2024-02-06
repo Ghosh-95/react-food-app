@@ -5,6 +5,10 @@
   text-align: center;
 } */
 
+body {
+  font-family: 'Inter', sans-serif;
+}
+
 header {
   background-color: #fff;
   display: flex;
@@ -57,16 +61,29 @@ button {
   transition: all 0.2s;
   cursor: pointer;
   color: #fff;
+  font-family: 'Inter', sans-serif;
+}
+
+.login-btn {
+  background-color: #ee5732;
+  font-size: 1.01rem;
+}
+
+.cart-btn {
+  color: black;
+  margin-right: 0.5rem;
+  font-weight: 500;
+  font-size: 1.01rem;
+}
+
+.cart-item {
+  color: #ee5732;
 }
 
 button:hover {
   border: 1px solid #ee5732;
   background-color: transparent;
   color: #ee5732;
-}
-
-button .cart-img {
-  width: 2rem;
 }
 
 .shimmer-main {

@@ -12,9 +12,12 @@ export default function HeaderComponent() {
                     <li><a href="">Contact Us</a></li>
                 </ul>
 
-                <button className="btn-cart">
-                    <img className="cart-img" src="/img/cart-logo.png" alt="cart-image" />
-                </button>
+                <div className="btn-right">
+                    <button className="cart-btn">Cart <span className="cart-item">0</span></button>
+
+                    <button className="login-btn">LogIn</button>
+                </div>
+
             </header>
         </>
     );
