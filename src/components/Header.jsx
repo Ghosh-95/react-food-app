@@ -1,4 +1,20 @@
+import { useState } from "react";
+
 export default function HeaderComponent() {
+    const [buttonText, setButtonText] = useState('LogIn');
+    const [isLoggedIn, setLogState] = useState(false);
+    function handleLoginClick() {
+
+        if (!isLoggedIn) {
+            setButtonText('Log Out');
+            setLogState(true);
+
+        } else {
+            setButtonText('LogIn');
+            setLogState(false);
+        };
+    }
+
     return (
         <>
             <header className="header">
@@ -15,7 +31,7 @@ export default function HeaderComponent() {
                 <div className="btn-right">
                     <button className="cart-btn">Cart <span className="cart-item">0</span></button>
 
-                    <button className="login-btn">LogIn</button>
+                    <button className="login-btn" onClick={handleLoginClick}>{buttonText}</button>
                 </div>
 
             </header>

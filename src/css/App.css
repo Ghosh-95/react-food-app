@@ -64,6 +64,10 @@ button {
   font-family: 'Inter', sans-serif;
 }
 
+.btn-right {
+  width: 11rem;
+}
+
 .login-btn {
   background-color: #ee5732;
   font-size: 1.01rem;
