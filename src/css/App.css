@@ -211,15 +211,16 @@ button:hover {
   padding: 0 0.8rem;
 }
 
-.card-details h4 {
-  margin: 0.1rem 0;
-}
-
 .card-details p {
-  margin-top: -1rem;
+  margin-top: -0.5rem;
 }
 
-.res-cards img,
+.fa-star {
+  width: 1rem;
+  color: #ee5732;
+}
+
+.res-cards .food-image,
 .shimmer_card-image {
   width: 100%;
   height: 12.5rem;
@@ -243,6 +244,6 @@ button:hover {
   background-color: #b4b4b4;
 }
 
-.res-cards img:hover {
+.res-cards .food-image:hover {
   scale: 1.02;
 }
