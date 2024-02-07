@@ -1,4 +1,3 @@
-import SearchComponent from './Search';
 import RestaurantCard from './Card';
 import { useEffect, useState } from 'react';
 import Shimmer from './Shimmer';
@@ -6,6 +5,16 @@ import Shimmer from './Shimmer';
 
 export default function MainComponent() {
     const [dataObject, setDataObject] = useState([]);
+    const [inputText, setInputText] = useState('')
+
+    const handleClick = (e) => {
+        e.preventDefault();
+        const filteredObj = dataObject.filter(data => data.info.name.toLowerCase().includes(inputText.toLowerCase()));
+
+        setDataObject(filteredObj)
+
+        setInputText('');
+    };
 
     useEffect(() => {
         fetchData();
@@ -22,12 +31,23 @@ export default function MainComponent() {
     return dataObject.length === 0 ? (<Shimmer />) : (
         <>
             <main>
-                <SearchComponent />
+                <form className="search-container" action="">
+
+                    <input
+                        onChange={(e) => setInputText(e.target.value)}
+                        type="search"
+                        name="search-food"
+                        id="search-bar"
+                        value={inputText} />
+                    <label htmlFor="search-bar"></label>
+                    <button className="search-btn" onClick={handleClick}>Search</button>
+                </form>
+
                 <button className='filter-btn' onClick={() => {
-                    const newDataObject = dataObject.filter(data => data.info.avgRating > 4);
+                    const newDataObject = dataObject.filter(data => data.info.avgRating > 4.2);
                     setDataObject(newDataObject);
                 }}>Top Restaurants</button>
-                <button className="filter-btn" style={{ marginLeft: "1rem" }} onClick={() => fetchData()}>All Restaurants</button>
+                <button className="filter-btn" style={{ marginLeft: "1rem" }} onClick={() => fetchData(setDataObject)}>All Restaurants</button>
                 <div className="res-container">
 
                     {
