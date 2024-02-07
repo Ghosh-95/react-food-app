@@ -2,16 +2,14 @@ import { useState } from "react";
 
 export default function HeaderComponent() {
     const [buttonText, setButtonText] = useState('LogIn');
-    const [isLoggedIn, setLogState] = useState(false);
+
     function handleLoginClick() {
 
-        if (!isLoggedIn) {
+        if (buttonText === 'LogIn') {
             setButtonText('Log Out');
-            setLogState(true);
 
         } else {
             setButtonText('LogIn');
-            setLogState(false);
         };
     }
 

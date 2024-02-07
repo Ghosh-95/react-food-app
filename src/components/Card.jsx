@@ -14,7 +14,7 @@ export default function RestaurantCard({ props: { info } }) {
 
                     <p>Price: {info.costForTwo}</p>
                     <p>
-                        <i class="fa-solid fa-star"></i> {info.avgRating
+                        <i className="fa-solid fa-star"></i> {info.avgRating
                         } &nbsp;&bull;&nbsp;
                         <span>{info.sla.slaString}</span>&nbsp;&bull;&nbsp;
                         <span>{info.sla.lastMileTravelString
