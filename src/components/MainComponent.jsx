@@ -5,13 +5,17 @@ import Shimmer from './Shimmer';
 
 export default function MainComponent() {
     const [dataObject, setDataObject] = useState([]);
-    const [inputText, setInputText] = useState('')
+    const [inputText, setInputText] = useState('');
+    const [filteredObj, setFilteredObj] = useState([]);
 
     const handleClick = (e) => {
         e.preventDefault();
-        const filteredObj = dataObject.filter(data => data.info.name.toLowerCase().includes(inputText.toLowerCase()));
+        /**TODO
+         * Add filter for the cuisines also so that when user searchs by the cuisines cards get filtered.
+         */
+        const filteredObj = dataObject.filter(data => data.info.name.toLowerCase().includes(inputText.toLowerCase())) || dataObject;
 
-        setDataObject(filteredObj)
+        if (filteredObj) setFilteredObj(filteredObj);
 
         setInputText('');
     };
@@ -26,6 +30,7 @@ export default function MainComponent() {
         const cardData = data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
 
         setDataObject(cardData);
+        setFilteredObj(cardData);
     };
 
     return dataObject.length === 0 ? (<Shimmer />) : (
@@ -44,14 +49,14 @@ export default function MainComponent() {
                 </form>
 
                 <button className='filter-btn' onClick={() => {
-                    const newDataObject = dataObject.filter(data => data.info.avgRating > 4.2);
+                    const newDataObject = filteredObj.filter(data => data.info.avgRating > 4.2);
                     setDataObject(newDataObject);
                 }}>Top Restaurants</button>
-                <button className="filter-btn" style={{ marginLeft: "1rem" }} onClick={() => fetchData(setDataObject)}>All Restaurants</button>
+                <button className="filter-btn" style={{ marginLeft: "1rem" }} onClick={() => fetchData()}>All Restaurants</button>
                 <div className="res-container">
 
                     {
-                        dataObject.map(data => (<RestaurantCard key={data.info.id} props={data} />))
+                        filteredObj.map(data => (<RestaurantCard key={data.info.id} props={data} />))
                     }
                 </div>
             </main>
