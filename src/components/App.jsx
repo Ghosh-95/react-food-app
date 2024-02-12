@@ -2,6 +2,9 @@ import { useState } from 'react';
 import '../css/App.css';
 import HeaderComponent from './Header';
 import MainComponent from './MainComponent';
+import About from './About';
+import Contact from './Contact';
+import { createBrowserRouter } from 'react-router-dom';
 
 /**
  * Food Order App
@@ -31,4 +34,20 @@ function App() {
   )
 };
 
-export default App;
+const appRouter = createBrowserRouter([
+  {
+    path: '/',
+    element: <App />,
+  },
+  {
+    path: '/about',
+    element: <About />,
+  },
+  {
+    path: '/contact',
+    element: <Contact />,
+  },
+
+])
+
+export default appRouter;
