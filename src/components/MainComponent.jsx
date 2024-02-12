@@ -10,10 +10,11 @@ export default function MainComponent() {
 
     const handleClick = (e) => {
         e.preventDefault();
-        /**TODO
-         * Add filter for the cuisines also so that when user searchs by the cuisines cards get filtered.
-         */
-        const filteredObj = dataObject.filter(data => data.info.name.toLowerCase().includes(inputText.toLowerCase())) || dataObject;
+
+        const smallInputText = inputText.toLowerCase();
+        const filteredObj = dataObject.filter(data => {
+            return data.info.name.toLowerCase().includes(smallInputText) || data.info.cuisines.join(' ').toLowerCase().includes(smallInputText) || dataObject;
+        });
 
         if (filteredObj) setFilteredObj(filteredObj);
 

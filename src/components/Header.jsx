@@ -4,13 +4,8 @@ export default function HeaderComponent() {
     const [buttonText, setButtonText] = useState('LogIn');
 
     function handleLoginClick() {
-
-        if (buttonText === 'LogIn') {
-            setButtonText('Log Out');
-
-        } else {
-            setButtonText('LogIn');
-        };
+        if (buttonText === 'LogIn') setButtonText('Log Out')
+        else setButtonText('LogIn');
     }
 
     return (
