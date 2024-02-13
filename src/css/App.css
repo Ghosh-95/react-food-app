@@ -64,19 +64,8 @@ button {
   font-family: 'Inter', sans-serif;
 }
 
-.btn-right {
-  width: 11rem;
-}
-
 .login-btn {
   background-color: #ee5732;
-  font-size: 1.01rem;
-}
-
-.cart-btn {
-  color: black;
-  margin-right: 0.5rem;
-  font-weight: 500;
   font-size: 1.01rem;
 }
 

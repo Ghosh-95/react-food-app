@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function HeaderComponent() {
     const [buttonText, setButtonText] = useState('LogIn');
@@ -16,13 +17,13 @@ export default function HeaderComponent() {
                 </figure>
 
                 <ul className="nav-items">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/about">About Us</a></li>
-                    <li><a href="/contact">Contact Us</a></li>
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/about">About Us</Link></li>
+                    <li><Link to="/contact">Contact Us</Link></li>
+                    <li> <Link to="/cart">Cart <span className="cart-item">0</span></Link></li>
                 </ul>
 
                 <div className="btn-right">
-                    <button className="cart-btn">Cart <span className="cart-item">0</span></button>
 
                     <button className="login-btn" onClick={handleLoginClick}>{buttonText}</button>
                 </div>

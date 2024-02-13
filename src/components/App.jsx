@@ -1,11 +1,13 @@
 import { useState } from 'react';
+import { Outlet, createBrowserRouter } from 'react-router-dom';
+
 import '../css/App.css';
 import HeaderComponent from './Header';
 import MainComponent from './MainComponent';
 import About from './About';
 import Contact from './Contact';
 import Error from './Error';
-import { Outlet, createBrowserRouter } from 'react-router-dom';
+import Cart from './Cart';
 
 /**
  * Food Order App
@@ -52,6 +54,10 @@ const appRouter = createBrowserRouter([
         path: '/contact',
         element: <Contact />,
       },
+      {
+        path: '/cart',
+        element: <Cart />
+      }
     ],
     errorElement: <Error />
   },
