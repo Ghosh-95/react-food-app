@@ -5,7 +5,7 @@ import MainComponent from './MainComponent';
 import About from './About';
 import Contact from './Contact';
 import Error from './Error';
-import { createBrowserRouter } from 'react-router-dom';
+import { Outlet, createBrowserRouter } from 'react-router-dom';
 
 /**
  * Food Order App
@@ -30,7 +30,7 @@ function App() {
   return (
     <>
       <HeaderComponent />
-      <MainComponent />
+      <Outlet />
     </>
   )
 };
@@ -39,26 +39,23 @@ const appRouter = createBrowserRouter([
   {
     path: '/',
     element: <App />,
+    children: [
+      {
+        path: '/',
+        element: <MainComponent />,
+      },
+      {
+        path: '/about',
+        element: <About />,
+      },
+      {
+        path: '/contact',
+        element: <Contact />,
+      },
+    ],
     errorElement: <Error />
   },
-  {
-    path: '/about',
-    element: (
-      <>
-        <HeaderComponent />
-        <About />
-      </>
-    ),
-  },
-  {
-    path: '/contact',
-    element: (
-      <>
-        <HeaderComponent />
-        <Contact />
-      </>
-    ),
-  },
+
 
 ])
 
