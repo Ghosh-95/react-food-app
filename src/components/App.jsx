@@ -8,6 +8,7 @@ import About from './About';
 import Contact from './Contact';
 import Error from './Error';
 import Cart from './Cart';
+import ResMenu from './ResMenu';
 
 /**
  * Food Order App
@@ -57,6 +58,10 @@ const appRouter = createBrowserRouter([
       {
         path: '/cart',
         element: <Cart />
+      },
+      {
+        path: '/restaurant/:id',
+        element: <ResMenu />
       }
     ],
     errorElement: <Error />
