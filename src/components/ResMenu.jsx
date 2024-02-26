@@ -69,13 +69,13 @@ export default function ResMenu() {
 
                     <div className="col-right">
                         <div>
-                            <span className="res-rating"><i className="fa-solid fa-motorcycle"></i>3.9</span>
+                            <span className="res-rating"><i className="fa-solid fa-star"></i>3.9</span>
                             <span>1k+ ratings</span>
                         </div>
                     </div>
 
-                    <p className="res__header-foot">0.8 kms | ₹34 Delivery fee will apply</p>
                 </div>
+                <p className="res__header-foot"><i className="fa-solid fa-motorcycle"></i>0.8 kms | ₹34 Delivery fee will apply</p>
             </section>
         </>
     )
