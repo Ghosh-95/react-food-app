@@ -1,0 +1,13 @@
+.res-details {
+    width: 62%;
+    margin: 0 auto;
+}
+
+.res-details h1 {
+    font-size: 2rem;
+}
+
+.res-header {
+    display: flex;
+    align-items: center;
+}

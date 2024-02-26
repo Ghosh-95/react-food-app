@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react"
 import Shimmer from "./Shimmer";
 
+import '../css/resMenu.css';
+
 export default function ResMenu() {
-    // TODO: fetch this link to load different restaurant menu.
+
     // https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=22.572646&lng=88.36389500000001&restaurantId=278225&catalog_qa=undefined&submitAction=ENTER
     const [resData, setResData] = useState(null);
 
@@ -13,25 +15,68 @@ export default function ResMenu() {
     async function fetchMenuData() {
         const response = await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=22.572646&lng=88.36389500000001&restaurantId=278225&catalog_qa=undefined&submitAction=ENTER");
 
-        const data = await response.json();
+        const { data } = await response.json();
         setResData(data);
     }
 
-    const resMenuData = resData?.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards[1].card.card.itemCards
-    const resName = resData?.data?.cards[0]?.card.card.text
-
-    console.log(resMenuData?.[0].card?.info.name);
-
-    return !resMenuData ? <Shimmer /> : (
-        <>
-            <h1>{resName}</h1>
+    const menuData = resData?.cards[4].groupedCard.cardGroupMap.REGULAR.cards[1].card.card.itemCards;
+    // const { id, name, city, areaName, costForTwoMessage
+    //     , cuisines, avgRating, totalRatingsString, feeDetails: { message }, sla: { lastMileTravelString } } = resData?.cards[2]?.card?.card?.info;
+    /**
+     * <h1>{resName}</h1>
             <ul>
-                {resMenuData.map(data => {
+                {menuData.map(data => {
                     return (<li key={data.card?.info.id}>
                         <h2>{data.card?.info.name}</h2>
                     </li>)
                 })}
             </ul>
+     */
+
+    /**
+     * <section className="res-details">
+                <h1>{name}</h1>
+
+                <div className="res-header">
+
+                    <div className="col-left">
+                        <h2>{name}</h2>
+                        <p className="cuisines">{cuisines.join(', ')}</p>
+                        <p>{areaName}, {lastMileTravelString}</p>
+                    </div>
+
+                    <div className="col-right"></div>
+
+                    <p className="res__header-foot">{message}</p>
+                </div>
+            </section>
+     * 
+     */
+    // let name, areaName, lastMileTravelString, cuisines = ['abc'], message;
+
+    return !menuData ? <Shimmer /> : (
+        <>
+            <section className="res-details">
+                <h1>AL Baik Fast Food Center</h1>
+
+                <div className="res-header">
+
+                    <div className="col-left">
+                        <h2>AL Baik Fast Food Center</h2>
+                        <p className="cuisines">Biryani, North Indian</p>
+                        <p>Bullyganj, 1.3 km</p>
+                    </div>
+
+                    <div className="col-right">
+                        <div>
+                            <span className="res-rating"><i className="fa-solid fa-motorcycle"></i>3.9</span>
+                            <span>1k+ ratings</span>
+                        </div>
+                    </div>
+
+                    <p className="res__header-foot">0.8 kms | ₹34 Delivery fee will apply</p>
+                </div>
+            </section>
         </>
     )
 }
