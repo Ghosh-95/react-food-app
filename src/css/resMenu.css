@@ -13,16 +13,21 @@
     align-items: center;
 }
 
+.col-left h2 {
+    font-size: 1.2rem;
+}
+
+.col-left p {
+    font-size: 0.9rem;
+}
+
+
 .col-right div {
     display: flex;
     flex-direction: column;
     padding: 0.5rem;
-    background-color: #a9f0a9;
     border-radius: 0.3rem;
-}
-
-.res-rating {
-    margin-bottom: 1rem;
+    box-shadow: 0 0.2rem 0.3rem rgba(0, 0, 0, 0.3);
 }
 
 .res-rating i {
@@ -31,8 +36,47 @@
 
 .res-rating::after {
     content: '';
-    width: 80%;
+    display: block;
+    width: 90%;
     height: 1px;
+    margin: 0.5rem auto;
+    background-color: #000;
+}
+
+.res__header-foot i {
+    margin-right: 0.5rem;
+}
+
+.menu-lists {
+    margin-block: 5rem;
+    padding-left: 0;
+}
+
+.menu-lists li {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #919090;
+    padding: 1rem 0;
+}
+
+li .menu-image {
+    position: relative;
+    width: 20%;
+}
+
+li .menu-image img {
+    width: 100%;
     margin: 0 auto;
-    background-color: rgb(8, 75, 52);
+    border-radius: 0.3rem;
+}
+
+button.add-food-btn {
+    text-transform: uppercase;
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0 0.2rem 0.3rem rgba(0, 0, 0, 0.3);
+    padding: 0.5rem 1.5rem;
+    color: #000;
+    bottom: 0;
+    left: 2.5rem;
 }

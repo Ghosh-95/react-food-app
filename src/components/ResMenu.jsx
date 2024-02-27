@@ -70,12 +70,28 @@ export default function ResMenu() {
                     <div className="col-right">
                         <div>
                             <span className="res-rating"><i className="fa-solid fa-star"></i>3.9</span>
-                            <span>1k+ ratings</span>
+                            <span className="rating-string">1k+ ratings</span>
                         </div>
                     </div>
 
                 </div>
                 <p className="res__header-foot"><i className="fa-solid fa-motorcycle"></i>0.8 kms | ₹34 Delivery fee will apply</p>
+
+                <ul className="menu-lists">
+
+                    <li>
+                        <div className="menu-desc">
+                            <span className="menu-type">🥬</span>
+                            <h3>Paneer Roll</h3>
+                            <p>₹70</p>
+                        </div>
+                        <div className="menu-image">
+                            <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/cb3242e4590302bb968df979219fff5c" alt="" />
+                            <button className="add-food-btn">Add</button>
+                        </div>
+                    </li>
+
+                </ul>
             </section>
         </>
     )
