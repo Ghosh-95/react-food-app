@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import Shimmer from "./Shimmer";
 
 import '../css/resMenu.css';
+import { MenuList } from "./MenuList";
 
 export default function ResMenu() {
 
@@ -79,17 +80,7 @@ export default function ResMenu() {
 
                 <ul className="menu-lists">
 
-                    <li>
-                        <div className="menu-desc">
-                            <span className="menu-type">🥬</span>
-                            <h3>Paneer Roll</h3>
-                            <p>₹70</p>
-                        </div>
-                        <div className="menu-image">
-                            <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/cb3242e4590302bb968df979219fff5c" alt="" />
-                            <button className="add-food-btn">Add</button>
-                        </div>
-                    </li>
+                    {menuData.map(data => (<MenuList key={data.card.info.id} menu={data} />))}
 
                 </ul>
             </section>
