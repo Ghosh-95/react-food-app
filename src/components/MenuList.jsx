@@ -3,6 +3,8 @@ import { MENU_IMAGE_URL } from "../utils/data";
 export function MenuList({ menu: { card: { info } } }) {
     const { name, price, imageId } = info;
 
+    console.log(info);
+
     return (
         <li>
             <div className="menu-desc">
