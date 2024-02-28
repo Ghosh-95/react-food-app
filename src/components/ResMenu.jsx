@@ -1,28 +1,36 @@
 import { useEffect, useState } from "react"
 import Shimmer from "./Shimmer";
+import { RES_MENU_URL } from "../utils/data";
 
 import '../css/resMenu.css';
 import { MenuList } from "./MenuList";
+import { useParams } from "react-router-dom";
 
 export default function ResMenu() {
 
-    const [resData, setResData] = useState([]);
+    const [resData, setResData] = useState([null]);
+
+    const params = useParams();
+    console.log(params);
 
     useEffect(() => {
         fetchMenuData();
     }, []);
 
     async function fetchMenuData() {
-        const response = await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=22.572646&lng=88.36389500000001&restaurantId=8693");
+        const response = await fetch(`${RES_MENU_URL}=${params.id}`);
 
         const { data } = await response.json();
         setResData(data);
+        console.log(data);
     }
-    const menuData = resData?.cards[4].groupedCard.cardGroupMap.REGULAR.cards[1].card.card.itemCards;
 
-    const { id, name, areaName, cuisines, avgRating, totalRatingsString, feeDetails: { message }, sla: { lastMileTravelString } } = resData.cards[2]?.card?.card?.info;
+    if (!resData.cards) return (<Shimmer />);
+    const menuData = resData?.cards[2].groupedCard.cardGroupMap.REGULAR.cards[3].card.card.itemCards;
 
-    return !menuData ? <Shimmer /> : (
+    const { id, name, areaName, cuisines, avgRating, totalRatingsString, feeDetails: { message }, sla: { lastMileTravelString } } = resData.cards[0]?.card?.card?.info;
+
+    return (
         <>
             <section className="res-details">
                 <h1>{name}</h1>

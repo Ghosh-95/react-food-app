@@ -32,7 +32,8 @@ header .logo-img {
   gap: 1.5rem;
 }
 
-.nav-items a {
+.nav-items a,
+.res-container a {
   color: black;
 }
 

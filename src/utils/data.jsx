@@ -119,4 +119,6 @@ const dataObj = [
 
 
 const ASSET_URL = 'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660';
-export { dataObj, ASSET_URL };
+const MENU_IMAGE_URL = 'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/';
+const RES_MENU_URL = 'https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=22.572646&lng=88.36389500000001&restaurantId'
+export { dataObj, ASSET_URL, MENU_IMAGE_URL, RES_MENU_URL };
