@@ -1,0 +1,31 @@
+.user-about {
+    width: 30rem;
+    background-image: linear-gradient(#f06442, #b45b44);
+    margin: 5rem auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 1.2rem 3rem;
+    color: #fff;
+    border-radius: 0.5rem;
+}
+
+.user-about h1 {
+    text-align: center;
+}
+
+.user-about h2,
+.user-about h1,
+.user-about p {
+    margin-bottom: 0.5rem;
+}
+
+.user-about a {
+    text-align: center;
+    margin-top: 0.6rem;
+}
+
+.user-about a i {
+    color: #fff;
+    font-size: 1.5rem;
+}
