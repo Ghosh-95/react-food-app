@@ -7,6 +7,10 @@ export default class About extends Component {
         super();
     }
 
+    componentDidMount() {
+        console.log("Parent component did mount");
+    }
+
     render() {
         return (
             <section className="user-about">

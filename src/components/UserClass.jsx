@@ -9,6 +9,10 @@ export default class UserClass extends React.Component {
         }
     }
 
+    componentDidMount() {
+        console.log("Child component did mount");
+    }
+
     render() {
         const { api, name, job, github } = this.props.userData;
         const { count } = this.state;
