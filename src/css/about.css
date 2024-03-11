@@ -29,3 +29,18 @@
     color: #fff;
     font-size: 1.5rem;
 }
+
+.class-count {
+    width: 8rem;
+    font-size: 1.1rem;
+    background-color: #fff;
+    color: #f06442;
+    transition: 0.3s all ease-in-out;
+    border: 1px solid #f06442;
+}
+
+.class-count:hover {
+    background-color: #b45b44;
+    color: #fff;
+    border-color: purple;
+}
