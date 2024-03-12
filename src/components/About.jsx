@@ -8,7 +8,7 @@ export default class About extends Component {
     }
 
     componentDidMount() {
-        console.log("Parent component did mount");
+        // console.log("Parent component did mount");
     }
 
     render() {

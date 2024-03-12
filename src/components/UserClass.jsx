@@ -5,30 +5,35 @@ export default class UserClass extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            count: 0,
+            userInfo: {
+                name: '...loading',
+                bio: '...loading',
+                avatar_url: ''
+            },
         }
     }
 
-    componentDidMount() {
-        console.log("Child component did mount");
+    async componentDidMount() {
+        const response = await fetch('https://api.github.com/users/Ghosh-95');
+        const data = await response.json();
+
+        console.log(data);
+
+        this.setState({
+            userInfo: data,
+        });
     }
 
     render() {
-        const { api, name, job, github } = this.props.userData;
-        const { count } = this.state;
+        const { api, job, github } = this.props.userData;
+        const { name, bio, avatar_url } = this.state?.userInfo;
 
         return (
             <>
                 <h2>Hey, I am {name}</h2>
-                <p>I am a {job}</p>
+                <p>{bio}</p>
                 <h3>I've used {api} to fetch data and use them into component.</h3>
-                <button
-                    onClick={() => {
-                        this.setState({
-                            count: this.state.count + 1,
-                        });
-                    }}
-                    className="class-count">Count: {count}</button>
+                <img className="avatar-url" src={avatar_url} alt="sushovan ghosh" />
                 <a target="_blank" href={github}><i className="fa-brands fa-github"></i></a>
             </>
         );

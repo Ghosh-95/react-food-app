@@ -44,3 +44,8 @@
     color: #fff;
     border-color: purple;
 }
+
+.avatar-url {
+    width: 20%;
+    border-radius: 100%;
+}
