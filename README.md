@@ -26,3 +26,10 @@ async componentDidMount(){
     const data = await fetch('random link');
 }
 ```
+Then when the state is updated React triggers re-rendering and updates the DOM with new value. Then a new method gets invoked; componentDidUpdate():
+```javascript
+componentDidUpdate(){
+    console.log("Component re-renders and updated");
+}
+```
+And at the end when we leave the page, when the component is removed from DOM Tree, componentWillMount() method will invoked.
