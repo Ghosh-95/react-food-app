@@ -3,38 +3,34 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import Shimmer from './Shimmer';
+import useRestaurants from '../utils/custom_hooks/useRestaurants';
 
 
 export default function MainComponent() {
+    const data = useRestaurants();
+
     const [dataObject, setDataObject] = useState([]);
     const [inputText, setInputText] = useState('');
     const [filteredObj, setFilteredObj] = useState([]);
+
+    useEffect(() => {
+        setDataObject(data);
+        setFilteredObj(data);
+    }, [data])
 
     const handleClick = (e) => {
         e.preventDefault();
 
         const smallInputText = inputText.toLowerCase();
         const filteredObj = dataObject.filter(data => {
-            return data.info.name.toLowerCase().includes(smallInputText) || data.info.cuisines.join(' ').toLowerCase().includes(smallInputText) || dataObject;
-        });
+            return data.info.name.toLowerCase().includes(smallInputText) || data.info.cuisines.join(' ').toLowerCase().includes(smallInputText);
+        }) || dataObject;
 
         if (filteredObj) setFilteredObj(filteredObj);
 
         setInputText('');
     };
 
-    useEffect(() => {
-        fetchData();
-    }, []);
-
-    async function fetchData() {
-        const response = await fetch('https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.572646&lng=88.36389500000001&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING');
-        const { data } = await response.json();
-        const cardData = data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
-
-        setDataObject(cardData);
-        setFilteredObj(cardData);
-    };
 
     return dataObject.length === 0 ? (<Shimmer />) : (
         <>
