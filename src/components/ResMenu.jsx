@@ -5,31 +5,17 @@ import { RES_MENU_URL } from "../utils/data";
 import '../css/resMenu.css';
 import { MenuList } from "./MenuList";
 import { useParams } from "react-router-dom";
+import useRestaurantMenu from "../utils/custom_hooks/useRestaurantMenu";
 
 export default function ResMenu() {
+    const { id: resId } = useParams();
 
-    const [resData, setResData] = useState([null]);
-
-    const params = useParams();
-    console.log(params);
-
-    useEffect(() => {
-        fetchMenuData();
-    }, []);
-
-    async function fetchMenuData() {
-        const response = await fetch(`${RES_MENU_URL}=${params.id}`);
-
-        const { data } = await response.json();
-        setResData(data);
-        console.log(data);
-    }
+    const resData = useRestaurantMenu(resId);
 
     if (!resData.cards) return (<Shimmer />);
     const menuData = resData?.cards[2].groupedCard.cardGroupMap.REGULAR.cards[3].card.card.itemCards || resData?.cards[2].groupedCard.cardGroupMap.REGULAR.cards[2].card.card.itemCards;
-    console.log(menuData);
 
-    const { id, name, areaName, cuisines, avgRating, totalRatingsString, feeDetails: { message }, sla: { lastMileTravelString } } = resData.cards[0]?.card?.card?.info;
+    const { name, areaName, cuisines, avgRating, totalRatingsString, feeDetails: { message }, sla: { lastMileTravelString } } = resData.cards[0]?.card?.card?.info;
 
     return (
         <>
