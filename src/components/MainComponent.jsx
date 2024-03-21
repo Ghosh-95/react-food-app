@@ -56,7 +56,10 @@ export default function MainComponent() {
                     const newDataObject = filteredObj.filter(data => data.info.avgRating > 4.2);
                     setDataObject(newDataObject);
                 }}>Top Restaurants</button>
-                <button className="filter-btn" style={{ marginLeft: "1rem" }} onClick={() => fetchData()}>All Restaurants</button>
+                <button className="filter-btn" style={{ marginLeft: "1rem" }} onClick={() => {
+                    setDataObject(data);
+                    setFilteredObj(data);
+                }}>All Restaurants</button>
                 <div className="res-container">
 
                     {
