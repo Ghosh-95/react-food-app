@@ -1,7 +1,11 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/custom_hooks/useOnlineStatus";
+import onlineImage from '/img/online.png';
+import offlineImage from '/img/offline.png';
 
 export default function HeaderComponent() {
+    const networkStatus = useOnlineStatus();
     const [buttonText, setButtonText] = useState('LogIn');
 
     function handleLoginClick() {
@@ -9,11 +13,20 @@ export default function HeaderComponent() {
         else setButtonText('LogIn');
     }
 
+    function updateNetworkImage() {
+        if (networkStatus) {
+            return (<img className="network-image_header user-online" src={onlineImage} alt="right image" />)
+        } else {
+            return (<img className="network-image_header user-offline" src={offlineImage} alt="warning-image" />)
+        }
+    }
+
     return (
         <>
             <header className="header">
                 <figure className="logo-container">
                     <img className="logo-img" src="/img/food-app-logo.png" alt="food-app-logo" />
+                    {updateNetworkImage()}
                 </figure>
 
                 <ul className="nav-items">

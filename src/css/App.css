@@ -21,11 +21,18 @@ main {
   position: relative;
 }
 
-header .logo-img {
+.logo-container {
+  position: relative;
+}
+
+.logo-container .logo-img {
   width: 3rem;
 }
 
-
+.network-image_header {
+  width: 0.8rem;
+  position: absolute;
+}
 
 .nav-items {
   display: flex;
