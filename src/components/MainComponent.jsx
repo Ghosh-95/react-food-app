@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 
 import Shimmer from './Shimmer';
 import useRestaurants from '../utils/custom_hooks/useRestaurants';
+import useOnlineStatus from '../utils/custom_hooks/useOnlineStatus';
+import NetworkError from './NetworkError';
 
 
 export default function MainComponent() {
@@ -30,6 +32,9 @@ export default function MainComponent() {
 
         setInputText('');
     };
+
+    const networkStatus = useOnlineStatus();
+    if (!networkStatus) return <NetworkError />
 
 
     return dataObject.length === 0 ? (<Shimmer />) : (
