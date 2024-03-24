@@ -32,6 +32,7 @@ main {
 .network-image_header {
   width: 0.8rem;
   position: absolute;
+  right: 2px;
 }
 
 .nav-items {
