@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { Suspense, lazy } from 'react';
 import { Outlet, createBrowserRouter } from 'react-router-dom';
 
 import '../css/App.css';
@@ -7,27 +7,11 @@ import MainComponent from './MainComponent';
 import About from './About';
 import Contact from './Contact';
 import Error from './Error';
-import Cart from './Cart';
 import ResMenu from './ResMenu';
+import Shimmer from './Shimmer';
 
-/**
- * Food Order App
- * => Components:
- *    - Header
- *      * Logo
- *      * Nav Links
- *      * Cart Button
- *    - Main
- *      * Search Bar
- *      * Restaurant Body
- *        - Restaurant Card
- *          # Image
- *          # Name of the Restaurant, delivery time, Star rating, cuisine
- *    - Footer
- *      * Links
- *      * Copyright
- * 
- */
+
+const Cart = lazy(() => import("./Cart"));
 
 function App() {
   return (
@@ -57,7 +41,7 @@ const appRouter = createBrowserRouter([
       },
       {
         path: '/cart',
-        element: <Cart />
+        element: <Suspense fallback={<Shimmer />}><Cart /></Suspense>
       },
       {
         path: '/restaurant/:id',
