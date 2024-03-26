@@ -12,10 +12,11 @@ export default function ResMenu() {
 
     const resData = useRestaurantMenu(resId);
 
-    if (!resData.cards) return (<Shimmer />);
-    const menuData = resData?.cards[2].groupedCard.cardGroupMap.REGULAR.cards[3].card.card.itemCards || resData?.cards[2].groupedCard.cardGroupMap.REGULAR.cards[2].card.card.itemCards;
 
-    const { name, areaName, cuisines, avgRating, totalRatingsString, feeDetails: { message }, sla: { lastMileTravelString } } = resData.cards[0]?.card?.card?.info;
+    if (!resData.cards) return (<Shimmer />);
+    const menuData = resData?.cards[4].groupedCard?.cardGroupMap.REGULAR.cards[4].card.card.itemCards || resData?.cards[2].groupedCard?.cardGroupMap.REGULAR.cards[2].card.card.itemCards || resData?.cards[2].groupedCard?.cardGroupMap.REGULAR.cards[3].card.card.itemCards;
+
+    const { name, areaName, cuisines, avgRating, totalRatingsString, feeDetails: { message }, sla: { lastMileTravelString } } = resData.cards[0]?.card?.card?.info || resData.cards[2]?.card?.card?.info;
 
     return (
         <>
@@ -42,7 +43,7 @@ export default function ResMenu() {
 
                 <ul className="menu-lists">
 
-                    {menuData.map(data => (<MenuList key={data.card.info.id} menu={data} />))}
+                    {menuData ? menuData.map(data => (<MenuList key={data.card.info.id} menu={data} />)) : (<p>Not Found</p>)}
 
                 </ul>
             </section>
