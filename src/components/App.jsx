@@ -7,11 +7,11 @@ import MainComponent from './MainComponent';
 import About from './About';
 import Contact from './Contact';
 import Error from './Error';
-import ResMenu from './ResMenu';
 import Shimmer from './Shimmer';
 
 
 const Cart = lazy(() => import("./Cart"));
+const ResMenu = lazy(() => import("./ResMenu"));
 
 function App() {
   return (
@@ -45,7 +45,7 @@ const appRouter = createBrowserRouter([
       },
       {
         path: '/restaurant/:id',
-        element: <ResMenu />
+        element: <Suspense fallback={<Shimmer />}><ResMenu /></Suspense>
       }
     ],
     errorElement: <Error />
