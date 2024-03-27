@@ -13,32 +13,25 @@ export default function HeaderComponent() {
         else setButtonText('LogIn');
     }
 
-    function updateNetworkImage() {
-        if (networkStatus) {
-            return (<img className="network-image_header user-online" src={onlineImage} alt="right image" />)
-        } else {
-            return (<img className="network-image_header user-offline" src={offlineImage} alt="warning-image" />)
-        }
-    }
-
     return (
         <>
-            <header className="header">
-                <figure className="logo-container">
-                    <img className="logo-img" src="/img/food-app-logo.png" alt="food-app-logo" />
-                    {updateNetworkImage()}
+            <header className="bg-[#fff] flex justify-around text-center shadow-md">
+                <figure className="relative">
+                    <img className="w-[3rem]" src="/img/food-app-logo.png" alt="food-app-logo" />
+                    <img className="w-[0.8rem] absolute right-[2px]" src={networkStatus ? onlineImage : offlineImage} alt={networkStatus ? "online" : "offline"} />
                 </figure>
 
-                <ul className="nav-items">
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/about">About Us</Link></li>
-                    <li><Link to="/contact">Contact Us</Link></li>
+                <ul className="nav-items flex gap-[1.5rem]">
+                    <li><Link className="text-black" to="/">Home</Link></li>
+                    <li><Link className="text-black" to="/about">About Us</Link></li>
+                    <li><Link className="text-black" to="/contact">Contact Us</Link></li>
                     <li> <Link to="/cart">Cart <span className="cart-item">0</span></Link></li>
                 </ul>
 
                 <div className="btn-right">
 
-                    <button className="login-btn" onClick={handleLoginClick}>{buttonText}</button>
+                    {/* <Button onClick={handleLoginClick} children={buttonText} /> */}
+                    <button className="bg-[#ee5732] text-[1.01rem] rounded-sm p-2 text-white">{buttonText}</button>
                 </div>
 
             </header>

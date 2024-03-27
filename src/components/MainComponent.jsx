@@ -39,7 +39,7 @@ export default function MainComponent() {
 
     return dataObject.length === 0 ? (<Shimmer />) : (
         <>
-            <main>
+            <main className='relative'>
                 <form className="search-container" action="">
 
                     <input

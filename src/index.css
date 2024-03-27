@@ -35,6 +35,34 @@ h1 {
   line-height: 1.1;
 }
 
+button {
+  padding: 0.6rem 0.8rem;
+  border-radius: 0.3rem;
+  background: transparent;
+  border: 1px solid #fff;
+  transition: all 0.2s;
+  cursor: pointer;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+}
+
+.nav-items a::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0.2rem;
+  background-color: #ee5732;
+  margin: 0.1rem auto -0.2rem;
+  border-radius: 1rem;
+  transition: 0.2s all ease-in-out;
+}
+
+.nav-items a:hover,
+.nav-items a:hover::after {
+  color: #ee5732;
+  width: 100%;
+}
+
 /* button {
   border-radius: 8px;
   border: 1px solid transparent;
