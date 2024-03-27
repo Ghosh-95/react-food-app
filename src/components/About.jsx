@@ -1,6 +1,5 @@
 import UserClass from "./UserClass";
 import { Component } from "react";
-import "../css/about.css"
 
 export default class About extends Component {
     constructor() {

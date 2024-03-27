@@ -1,4 +1,4 @@
-import './../css/networkError.css';
+// import './../css/networkError.css';
 import warningImage from '/img/warning.png'
 
 export default function NetworkError() {

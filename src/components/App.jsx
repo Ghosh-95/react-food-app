@@ -1,7 +1,6 @@
 import { Suspense, lazy } from 'react';
 import { Outlet, createBrowserRouter } from 'react-router-dom';
 
-import '../css/App.css';
 import HeaderComponent from './Header';
 import MainComponent from './MainComponent';
 import About from './About';

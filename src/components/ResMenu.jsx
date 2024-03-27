@@ -1,8 +1,4 @@
-import { useEffect, useState } from "react"
 import Shimmer from "./Shimmer";
-import { RES_MENU_URL } from "../utils/data";
-
-import '../css/resMenu.css';
 import { MenuList } from "./MenuList";
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/custom_hooks/useRestaurantMenu";
