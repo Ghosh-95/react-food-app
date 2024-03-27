@@ -7,6 +7,7 @@ import About from './About';
 import Contact from './Contact';
 import Error from './Error';
 import Shimmer from './Shimmer';
+import Footer from './Footer';
 
 
 const Cart = lazy(() => import("./Cart"));
@@ -17,6 +18,7 @@ function App() {
     <>
       <HeaderComponent />
       <Outlet />
+      <Footer />
     </>
   )
 };
