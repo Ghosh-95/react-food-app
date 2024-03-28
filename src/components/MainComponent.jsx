@@ -6,6 +6,7 @@ import Shimmer from './Shimmer';
 import useRestaurants from '../utils/custom_hooks/useRestaurants';
 import useOnlineStatus from '../utils/custom_hooks/useOnlineStatus';
 import NetworkError from './NetworkError';
+import Button from './Button';
 
 
 export default function MainComponent() {
@@ -33,6 +34,16 @@ export default function MainComponent() {
         setInputText('');
     };
 
+    function handleAllRestaurant() {
+        setDataObject(data);
+        setFilteredObj(data);
+    };
+
+    function handleTopRestaurant() {
+        const newDataObject = filteredObj.filter(data => data.info.avgRating > 4.2);
+        setDataObject(newDataObject);
+    };
+
     const networkStatus = useOnlineStatus();
     if (!networkStatus) return <NetworkError />
 
@@ -40,26 +51,31 @@ export default function MainComponent() {
     return dataObject.length === 0 ? (<Shimmer />) : (
         <>
             <main className='relative'>
-                <form className="search-container" action="">
+                <form className="w-[80%] py-12 text-[1.2rem] text-white my-0 mx-auto" action="">
 
                     <input
                         onChange={(e) => setInputText(e.target.value)}
                         type="search"
                         name="search-food"
                         id="search-bar"
+                        className="w-[75%] text-black mr-[1.8rem] py-[0.6rem] px-[1.2rem] border-[1px] border-solid border-[#ee5732] outline-none rounded-md"
                         value={inputText} />
                     <label htmlFor="search-bar"></label>
-                    <button className="search-btn" onClick={handleClick}>Search</button>
+
+                    <Button
+                        variants="bg-[#ee5732]"
+                        onClick={handleClick}>Search
+                    </Button>
                 </form>
 
-                <button className='filter-btn' onClick={() => {
-                    const newDataObject = filteredObj.filter(data => data.info.avgRating > 4.2);
-                    setDataObject(newDataObject);
-                }}>Top Restaurants</button>
-                <button className="filter-btn" style={{ marginLeft: "1rem" }} onClick={() => {
-                    setDataObject(data);
-                    setFilteredObj(data);
-                }}>All Restaurants</button>
+                <Button
+                    variants="mt-3 mb-[4rem] ml-[8.3rem] bg-[#ee5732] font-[1rem]"
+                    onClick={handleAllRestaurant}>Top Restaurants
+                </Button>
+                <Button
+                    variants="mt-3 ml-3 mb-[4rem] bg-[#ee5732] font-[1rem]"
+                    onClick={handleTopRestaurant}>All Restaurants
+                </Button>
                 <div className="res-container">
 
                     {
