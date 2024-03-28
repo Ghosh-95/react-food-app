@@ -1,10 +1,12 @@
+import ListAnchor from "./List";
+
 export default function Footer() {
     return (
-        <footer className="w-full bg-[#ee5732] fixed bottom-0 text-white flex justify-around py-3">
+        <footer className="w-full bg-[#ee5732] text-white flex justify-around py-3">
             <ul>
-                <li className="transition-all hover:scale-110"><a href="">Instagram</a></li>
-                <li className="transition-all hover:scale-110"><a href="">Twitter</a></li>
-                <li className="transition-all hover:scale-110"><a href="">YouTube</a></li>
+                <ListAnchor>Instagram</ListAnchor>
+                <ListAnchor>YouTube</ListAnchor>
+                <ListAnchor>Twitter</ListAnchor>
             </ul>
             <ul>
                 <li>Copyright @ 2024</li>
