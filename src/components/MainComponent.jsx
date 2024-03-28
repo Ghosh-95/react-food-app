@@ -69,11 +69,11 @@ export default function MainComponent() {
                 </form>
 
                 <Button
-                    variants="mt-3 md:ml-[8.3rem] ml-[4rem] bg-[#ee5732] font-[1rem] active:bg-[#963118]"
+                    variants="text-white mt-3 md:ml-[8.3rem] ml-[4rem] bg-[#ee5732] font-[1rem] active:bg-[#963118]"
                     onClick={handleAllRestaurant}>Top Restaurants
                 </Button>
                 <Button
-                    variants="mt-3 ml-3 bg-[#ee5732] font-[1rem] active:bg-[#963118]"
+                    variants="text-white mt-3 ml-3 bg-[#ee5732] font-[1rem] active:bg-[#963118]"
                     onClick={handleTopRestaurant}>All Restaurants
                 </Button>
                 <div className="max-w-[75rem] my-[5rem] mx-auto flex justify-center items-center flex-wrap gap-[2rem]">

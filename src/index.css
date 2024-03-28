@@ -27,6 +27,7 @@ ul {
 body {
   margin: 0;
   color: #000;
+  overflow-x: hidden;
 }
 
 h1 {
@@ -49,4 +50,8 @@ h1 {
 .nav-items a:hover::after {
   color: #ee5732;
   width: 100%;
+}
+
+.menu-lists li:not(:last-of-type) {
+  border-bottom: 1px solid #919090;
 }

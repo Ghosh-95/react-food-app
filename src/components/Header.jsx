@@ -30,7 +30,7 @@ export default function HeaderComponent() {
                 </ul>
 
 
-                <Button onClick={handleLoginClick} variants={`bg-[#ee5732] hover:border-[#ee5732] hover:bg-transparent hover:text-[#ee5732] text-[1.1rem] w-[7rem]`}>{buttonText}</Button>
+                <Button onClick={handleLoginClick} variants={`bg-[#ee5732] text-white hover:border-[#ee5732] hover:bg-transparent hover:text-[#ee5732] text-[1.1rem] w-[7rem]`}>{buttonText}</Button>
 
 
             </header>
