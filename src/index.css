@@ -17,7 +17,6 @@
 
 a {
   font-weight: 500;
-
   text-decoration: inherit;
 }
 
@@ -33,17 +32,6 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
-}
-
-button {
-  padding: 0.6rem 0.8rem;
-  border-radius: 0.3rem;
-  background: transparent;
-  border: 1px solid #fff;
-  transition: all 0.2s;
-  cursor: pointer;
-  color: #fff;
-  font-family: 'Inter', sans-serif;
 }
 
 .nav-items a::after {
@@ -62,21 +50,3 @@ button {
   color: #ee5732;
   width: 100%;
 }
-
-/* button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-} */
-
-
-/* button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-} */
