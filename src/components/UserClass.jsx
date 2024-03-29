@@ -28,13 +28,13 @@ export default class UserClass extends React.Component {
 
         return (
             <>
-                <h2>Hey, I am {name}</h2>
-                <div className="bio-container">
-                    <img className="avatar-url" src={avatar_url} alt="sushovan ghosh" />
+                <h2 className="mb-2">Hey, I am {name}</h2>
+                <div className="flex items-center gap-8">
+                    <img className="w-[18%] rounded-full" src={avatar_url} alt="sushovan ghosh" />
                     <p>{bio}</p>
                 </div>
-                <h3>I've used {api} to fetch data and use them into component.</h3>
-                <a target="_blank" href={github}><i className="fa-brands fa-github"></i></a>
+                <h3 className="mt-3 text-sm">I've used {api} to fetch data and use them into component.</h3>
+                <a target="_blank" href={github} className="text-center mt-3"><i className="fa-brands fa-github text-white text-2xl"></i></a>
             </>
         );
     }

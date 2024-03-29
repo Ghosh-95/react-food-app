@@ -25,7 +25,7 @@ function ShimmerCard() {
 
 export default function Shimmer() {
     return (
-        <main className="my-[2rem] w-full h-[100vh]">
+        <main className="my-[2rem] w-full min-h-[100vh]">
             <div className="w-[70%] bg-gray-300 py-[0.2rem] md:py-[1rem] mx-auto px-[1rem] border-[1px] border-solid border-gray-300 rounded-md md:w-[75%]"></div>
 
             <div className="w-[80%] mx-[11rem] my-[1.5rem]">
