@@ -1,4 +1,4 @@
-import RestaurantCard from './Card';
+import RestaurantCard, { EnhancedRestaurantCard } from './Card';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -11,6 +11,7 @@ import Button from './Button';
 
 export default function MainComponent() {
     const data = useRestaurants();
+    const UpdatedResCard = EnhancedRestaurantCard(RestaurantCard);
 
     const [dataObject, setDataObject] = useState([]);
     const [inputText, setInputText] = useState('');
@@ -80,7 +81,7 @@ export default function MainComponent() {
 
                     {
                         filteredObj.map(data => (<Link key={data.info.id} to={`restaurant/${data.info.id}`}>
-                            <RestaurantCard props={data} />
+                            <UpdatedResCard props={data} />
                         </Link>))
                     }
                 </div>
