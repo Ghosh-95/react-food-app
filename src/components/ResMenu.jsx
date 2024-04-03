@@ -19,8 +19,8 @@ export default function ResMenu() {
 
     return (
         <>
-            <section className="w-[65%] px-[1rem] mx-auto mt-6">
-                <h1 className="text-4xl text-green-600 font-semibold">{name}</h1>
+            <section className="md:w-[65%] w-[90%] px-[1rem] mx-auto mt-6">
+                <h1 className="md:text-4xl text-3xl text-green-600 font-semibold">{name}</h1>
 
                 <div className="flex justify-between items-center">
 
@@ -38,9 +38,10 @@ export default function ResMenu() {
                     </div>
 
                 </div>
-                <p className="res__header-foot"><i className="fa-solid fa-motorcycle mr-[0.5rem] text-[#ee3752]"></i>{message}</p>
+                <p className="mb-[5rem]"><i className="fa-solid fa-motorcycle mr-[0.5rem] text-[#ee3752]"></i>{message}</p>
 
-                <div className="w-[90%] bg-black h-[1px] mx-auto mt-[2rem]"></div>
+                <hr className="w-[95%] mx-auto h-1" />
+                <hr className="w-[95%] mx-auto h-1" />
 
 
                 {filteredMenuCategory.map(category => <RestaurantCategory key={category.card.card.title} data={category} />)}
