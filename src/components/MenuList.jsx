@@ -7,10 +7,15 @@ export function MenuList({ menu: { card: { info } } }) {
     return (
         <li className="menu-lists flex justify-between border-b-[1px] border-b-solid border-b-[#919090] py-[1rem] px-0 mb-[0.5rem]">
             <div>
-                <span className="">{itemAttribute.vegClassifier === "VEG" ? (<i className="fa-solid fa-carrot text-green-600 text-xl"></i>) : (<i className="fa-solid fa-hotdog text-red-700 text-xl"></i>)}</span>
-                <h3 className="text-[1rem] my-[0.3rem]">{name}</h3>
-                <p className="mt-[0.3rem] text-[0.9rem]">₹{price / 100}</p>
+                <span className="bg-white p-2 shadow-lg">
+                    {itemAttribute.vegClassifier === "VEG" ? (<i className="fa-solid fa-carrot text-green-600 text-xl"></i>) : (<i className="fa-solid fa-hotdog text-red-700 text-xl"></i>)}
+                </span>
+                <h3 className="text-xl my-[0.5rem] text-green-600 font-bold">{name}</h3>
+                <p className="mt-[0.3rem] text-[1rem]">
+                    ₹{price ? price / 100 : info.defaultPrice / 100}
+                </p>
             </div>
+
             <div className="relative w-[20%]">
                 <img src={`${MENU_IMAGE_URL}${imageId}`} alt={`A plate of ${name}`} className="w-full h-[85%] my-0 mx-auto rounded-md" />
 

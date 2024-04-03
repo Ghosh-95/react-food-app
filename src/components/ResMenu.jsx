@@ -1,7 +1,7 @@
 import Shimmer from "./Shimmer";
-import { MenuList } from "./MenuList";
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/custom_hooks/useRestaurantMenu";
+import RestaurantCategory from "./RestaurantCategory";
 
 export default function ResMenu() {
     const { id: resId } = useParams();
@@ -10,13 +10,16 @@ export default function ResMenu() {
 
 
     if (!resData.cards) return (<Shimmer />);
-    const menuData = resData?.cards[4].groupedCard?.cardGroupMap.REGULAR.cards[4].card.card.itemCards || resData?.cards[2].groupedCard?.cardGroupMap.REGULAR.cards[2].card.card.itemCards || resData?.cards[2].groupedCard?.cardGroupMap.REGULAR.cards[3].card.card.itemCards;
+
+    const filteredMenuCategory = resData?.cards[4].groupedCard?.cardGroupMap.REGULAR.cards.filter(data => {
+        return data.card.card['@type'].includes('type.googleapis.com/swiggy.presentation.food.v2.ItemCategory')
+    });
 
     const { name, areaName, cuisines, avgRating, totalRatingsString, feeDetails: { message }, sla: { lastMileTravelString } } = resData.cards[0]?.card?.card?.info || resData.cards[2]?.card?.card?.info;
 
     return (
         <>
-            <section className="w-[65%] px-[1rem] mx-auto mt-6 bg-[#fdfaf9]">
+            <section className="w-[65%] px-[1rem] mx-auto mt-6">
                 <h1 className="text-4xl text-green-600 font-semibold">{name}</h1>
 
                 <div className="flex justify-between items-center">
@@ -39,11 +42,9 @@ export default function ResMenu() {
 
                 <div className="w-[90%] bg-black h-[1px] mx-auto mt-[2rem]"></div>
 
-                <ul className="my-[5rem] pl-0">
 
-                    {menuData ? menuData.map(data => (<MenuList key={data.card.info.id} menu={data} />)) : (<p>Not Found</p>)}
+                {filteredMenuCategory.map(category => <RestaurantCategory key={category.card.card.title} data={category} />)}
 
-                </ul>
             </section>
         </>
     )
