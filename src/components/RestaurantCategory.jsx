@@ -1,20 +1,27 @@
+import { useState } from "react";
 import { MenuList } from "./MenuList";
+
 export default function RestaurantCategory({ data }) {
     const { title } = data.card.card;
 
     const menuData = data.card.card.itemCards;
+    const [isExpanded, setIsExpanded] = useState(false);
+
+    function renderMenuList() {
+        if (menuData) {
+            return menuData.map(data => (<MenuList key={data.card.info.id} menu={data} />))
+        }
+        return (<p>Not Found</p>);
+    };
 
     return (
         <>
-            <ul className="my-[2rem] pl-2 py-2 bg-[#fdfaf9]">
-                <h3 className="text-xl px-3 font-bold bg-gray-200 flex justify-between">{title} ({menuData.length})
-                    <span>
-                        <i className="fa-solid fa-angle-down font-bold"></i>
-                        <i className="fa-solid fa-angle-up font-bold"></i>
-                    </span>
+            <ul className="my-[2rem] pl-2 py-2 bg-gray-100">
+                <h3 onClick={() => setIsExpanded(!isExpanded)} className="text-xl px-3 font-bold bg-gray-200 flex justify-between">{title} ({menuData.length})
+                    {isExpanded ? <i className="fa-solid fa-angle-up font-bold mt-1 cursor-pointer"></i> : <i className="fa-solid fa-angle-down font-bold mt-1 cursor-pointer"></i>}
                 </h3>
-                {menuData ? menuData.map(data => (<MenuList key={data.card.info.id} menu={data} />)) : (<p>Not Found</p>)}
+                {isExpanded ? renderMenuList() : ''}
             </ul>
         </>
     )
-}
+};

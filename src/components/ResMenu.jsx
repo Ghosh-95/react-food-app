@@ -32,13 +32,13 @@ export default function ResMenu() {
 
                     <div>
                         <div className="flex flex-col p-[0.5rem] rounded-md shadow-md">
-                            <span className="after:content-[''] after:block after:w-[90%] after:h-[1px] after:my-[0.5rem] after:mx-auto after:bg-black text-center"><i className="fa-solid fa-star mr-[0.3rem] text-green-600"></i>{avgRating}</span>
-                            <span className="">{totalRatingsString}</span>
+                            <span className="after:content-[''] after:block after:w-[90%] after:h-[1px] after:my-[0.5rem] after:mx-auto after:bg-black text-center font-bold"><i className="fa-solid fa-star mr-[0.3rem] text-green-600"></i>{avgRating}</span>
+                            <span className="font-bold">{totalRatingsString}</span>
                         </div>
                     </div>
 
                 </div>
-                <p className="mb-[5rem]"><i className="fa-solid fa-motorcycle mr-[0.5rem] text-[#ee3752]"></i>{message}</p>
+                <p className="my-[1rem]"><i className="fa-solid fa-motorcycle mr-[0.5rem] text-[#ee3752]"></i>{message}</p>
 
                 <hr className="w-[95%] mx-auto h-1" />
                 <hr className="w-[95%] mx-auto h-1" />
