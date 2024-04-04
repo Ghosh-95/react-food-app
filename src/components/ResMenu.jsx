@@ -2,12 +2,14 @@ import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/custom_hooks/useRestaurantMenu";
 import RestaurantCategory from "./RestaurantCategory";
+import { useState } from "react";
 
 export default function ResMenu() {
+    const [currentIndex, setCurrentIndex] = useState(0);
+
     const { id: resId } = useParams();
 
     const resData = useRestaurantMenu(resId);
-
 
     if (!resData.cards) return (<Shimmer />);
 
@@ -44,7 +46,11 @@ export default function ResMenu() {
                 <hr className="w-[95%] mx-auto h-1" />
 
 
-                {filteredMenuCategory.map(category => <RestaurantCategory key={category.card.card.title} data={category} />)}
+                {filteredMenuCategory.map((category, index) => <RestaurantCategory
+                    isExpanded={index === currentIndex && true}
+                    setAccordionIndex={() => setCurrentIndex(index)}
+                    key={category.card.card.title}
+                    data={category} />)}
 
             </section>
         </>

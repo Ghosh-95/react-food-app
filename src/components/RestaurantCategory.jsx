@@ -1,11 +1,10 @@
 import { useState } from "react";
 import { MenuList } from "./MenuList";
 
-export default function RestaurantCategory({ data }) {
+export default function RestaurantCategory({ data, isExpanded, setAccordionIndex }) {
     const { title } = data.card.card;
 
     const menuData = data.card.card.itemCards;
-    const [isExpanded, setIsExpanded] = useState(false);
 
     function renderMenuList() {
         if (menuData) {
@@ -17,10 +16,10 @@ export default function RestaurantCategory({ data }) {
     return (
         <>
             <ul className="my-[2rem] pl-2 py-2 bg-gray-100">
-                <h3 onClick={() => setIsExpanded(!isExpanded)} className="text-xl px-3 font-bold bg-gray-200 flex justify-between">{title} ({menuData.length})
+                <h3 onClick={() => setAccordionIndex()} className="text-xl px-3 font-bold bg-gray-200 flex justify-between">{title} ({menuData.length})
                     {isExpanded ? <i className="fa-solid fa-angle-up font-bold mt-1 cursor-pointer"></i> : <i className="fa-solid fa-angle-down font-bold mt-1 cursor-pointer"></i>}
                 </h3>
-                {isExpanded ? renderMenuList() : ''}
+                {isExpanded && renderMenuList()}
             </ul>
         </>
     )
