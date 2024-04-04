@@ -26,11 +26,11 @@ export default function HeaderComponent() {
                     <li><Link className="text-black" to="/">Home</Link></li>
                     <li><Link className="text-black" to="/about">About Us</Link></li>
                     <li><Link className="text-black" to="/contact">Contact Us</Link></li>
-                    <li> <Link to="/cart">Cart <span className="text-[#ee5732]">0</span></Link></li>
+                    <li> <Link to="/cart">Cart <span className="text-[#FA7070]">0</span></Link></li>
                 </ul>
 
 
-                <Button onClick={handleLoginClick} variants={`bg-[#ee5732] text-white hover:border-[#ee5732] hover:bg-transparent hover:text-[#ee5732] text-[1.1rem] w-[7rem]`}>{buttonText}</Button>
+                <Button onClick={handleLoginClick} variants={`bg-[#FA7070] text-white hover:border-[#FA7070] hover:bg-transparent hover:text-[#FA7070] text-[1.1rem] w-[7rem]`}>{buttonText}</Button>
 
 
             </header>
