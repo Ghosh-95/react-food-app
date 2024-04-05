@@ -55,3 +55,39 @@ But passing props down to children from parents can be troublesome and repeatati
 \
 \
 ![Props Drilling](https://react.dev/_next/image?url=%2Fimages%2Fdocs%2Fdiagrams%2Fpassing_data_prop_drilling.dark.png&w=640&q=75)
+
+### Use Context
+To avoid Prop drilling, there is another method we can use is called contextAPI. To create a context:
+```js
+import {createContext} from 'react';
+const myContext = createContext("default context");
+```
+Then we can use this context in two ways:
+- We can use a hook called `useContext()` that react provides.
+    ```js
+    import myContext from './src';
+    import {useContext } from 'react';
+
+    const myDataContext = useContext(myContext);
+    console.log(myDataContext); // Output: "default context"
+    ```
+    To use the same context all over the application use `<contextName.Provider>` to wrap the whole app:
+    ```js
+    import myContext from './src';
+
+    <myContext.Provider value={{valueOfTheContext}}>
+        <App />
+    </myContext.Provider>
+    ```
+- In case of a class based component, we need to follow another way. We need to use `<contextName.Consumer>` to handle the context varaibles. It takes a callback function which can access the context value.
+    ```js
+    import myContext from './src';
+    
+    <myContext.Consumer>
+        {(data) => {
+            console.log(data); // Output: "default context"
+        }}
+    </myContext.Consumer>
+
+    // 'data' that passed as parameter inside callback function is the context value.
+    ```
