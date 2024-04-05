@@ -1,4 +1,5 @@
 import React from "react";
+import userContext from "../utils/userContext";
 
 export default class UserClass extends React.Component {
 
@@ -28,7 +29,9 @@ export default class UserClass extends React.Component {
 
         return (
             <>
-                <h2 className="mb-2">Hey, I am {name}</h2>
+                <userContext.Consumer>
+                    {({ userName }) => <h2 className="mb-2">Hey, I am {userName}</h2>}
+                </userContext.Consumer>
                 <div className="flex items-center gap-8">
                     <img className="w-[18%] rounded-full" src={avatar_url} alt="sushovan ghosh" />
                     <p>{bio}</p>

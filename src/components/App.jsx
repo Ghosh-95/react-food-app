@@ -1,4 +1,4 @@
-import { Suspense, lazy } from 'react';
+import { Suspense, lazy, useEffect, useState } from 'react';
 import { Outlet, createBrowserRouter } from 'react-router-dom';
 
 import HeaderComponent from './Header';
@@ -8,18 +8,30 @@ import Contact from './Contact';
 import Error from './Error';
 import Shimmer from './Shimmer';
 import Footer from './Footer';
-
+import userContext from '../utils/userContext';
 
 const Cart = lazy(() => import("./Cart"));
 const ResMenu = lazy(() => import("./ResMenu"));
 
 function App() {
+  const [userName, setUsername] = useState('');
+
+  useEffect(() => {
+    const data = {
+      userName: "Sushovan Ghosh",
+    };
+
+    setUsername(data.userName);
+  }, []);
+
   return (
-    <>
-      <HeaderComponent />
+    <userContext.Provider value={{ userName: userName }}>
+      <userContext.Provider value={{ userName: "Ghosh" }}>
+        <HeaderComponent />
+      </userContext.Provider>
       <Outlet />
       <Footer />
-    </>
+    </userContext.Provider>
   )
 };
 

@@ -1,17 +1,30 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/custom_hooks/useOnlineStatus";
 import Button from "./Button";
 import onlineImage from '/img/online.png';
 import offlineImage from '/img/offline.png';
+import userContext from "../utils/userContext";
 
 export default function HeaderComponent() {
     const networkStatus = useOnlineStatus();
+    const { userName } = useContext(userContext);
+
     const [buttonText, setButtonText] = useState('LogIn');
 
     function handleLoginClick() {
         if (buttonText === 'LogIn') setButtonText('Log Out')
         else setButtonText('LogIn');
+    }
+
+    function loginComponent() {
+        return (
+            <ul>
+                <li
+                    className="bg-green-600 text-white w-[7rem] py-2 text-center text-[1.1rem] rounded-md cursor-pointer"
+                    onClick={() => setButtonText('LogIn')}>{userName}</li>
+            </ul>
+        )
     }
 
     return (
@@ -30,7 +43,7 @@ export default function HeaderComponent() {
                 </ul>
 
 
-                <Button onClick={handleLoginClick} variants={`bg-[#FA7070] text-white hover:border-[#FA7070] hover:bg-transparent hover:text-[#FA7070] text-[1.1rem] w-[7rem]`}>{buttonText}</Button>
+                {buttonText === 'LogIn' ? <Button onClick={handleLoginClick} variants={`bg-[#FA7070] text-white hover:border-[#FA7070] hover:bg-transparent hover:text-[#FA7070] text-[1.1rem] w-[7rem]`}>{buttonText}</Button> : loginComponent()}
 
 
             </header>
