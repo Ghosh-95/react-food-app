@@ -15,7 +15,7 @@ export function MenuList({ menu: { card: { info } } }) {
                     ₹{price ? price / 100 : info.defaultPrice / 100}
                 </p>
 
-                <p className="text-sm">{description.length > 200 ? `${description.substring(0, 200)}...` : description}</p>
+                <p className="text-sm">{description && description.length > 200 ? `${description.substring(0, 200)}...` : description}</p>
             </div>
 
             <div className="relative md:w-[20%] w-auto h-auto">
