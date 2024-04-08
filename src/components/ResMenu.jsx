@@ -1,8 +1,8 @@
-import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/custom_hooks/useRestaurantMenu";
 import RestaurantCategory from "./RestaurantCategory";
 import { useState } from "react";
+import ShimmerMenu from "./ShimmerMenu";
 
 export default function ResMenu() {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -11,7 +11,7 @@ export default function ResMenu() {
 
     const resData = useRestaurantMenu(resId);
 
-    if (!resData.cards) return (<Shimmer />);
+    if (!resData.cards) return (<ShimmerMenu />);
 
     const filteredMenuCategory = resData?.cards[4].groupedCard?.cardGroupMap.REGULAR.cards.filter(data => {
         return data.card.card['@type'].includes('type.googleapis.com/swiggy.presentation.food.v2.ItemCategory')
