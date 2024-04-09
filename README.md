@@ -91,3 +91,22 @@ Then we can use this context in two ways:
 
     // 'data' that passed as parameter inside callback function is the context value.
     ```
+
+
+## Redux Toolkit
+
+Redux is a pattern and library for managing and updating application state, using events called "actions". The patterns and tools provided by Redux make it easier to understand when, where, why, and how the state in your application is being updated, and how your application logic will behave when those changes occur.
+
+> Redux helps you to manage 'global' state - a state that is needed across anywhere in the entire application.
+
+**Redux Tookit** is recommended approach to write Redux logic in the App.
+
+Read about Redux Toolkit [here](https://redux-toolkit.js.org/)
+
+### TODO
+- Install Redux toolkit : @reduxjs/toolkit
+- Build a Redux Store
+- Connect the store to the app
+- create data slices
+- dispatch an action
+- use selector to update the state
