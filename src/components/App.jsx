@@ -1,5 +1,6 @@
 import { Suspense, lazy, useEffect, useState } from 'react';
 import { Outlet, createBrowserRouter } from 'react-router-dom';
+import Provider from 'react-redux';
 
 import HeaderComponent from './Header';
 import MainComponent from './MainComponent';
@@ -9,6 +10,7 @@ import Error from './Error';
 import Shimmer from './Shimmer';
 import Footer from './Footer';
 import userContext from '../utils/userContext';
+import appStore from '../utils/appStore';
 
 const Cart = lazy(() => import("./Cart"));
 const ResMenu = lazy(() => import("./ResMenu"));
@@ -25,13 +27,15 @@ function App() {
   }, []);
 
   return (
-    <userContext.Provider value={{ userName: userName }}>
-      <userContext.Provider value={{ userName: "Ghosh" }}>
-        <HeaderComponent />
+    <Provider store={appStore}>
+      <userContext.Provider value={{ userName: userName }}>
+        <userContext.Provider value={{ userName: "Ghosh" }}>
+          <HeaderComponent />
+        </userContext.Provider>
+        <Outlet />
+        <Footer />
       </userContext.Provider>
-      <Outlet />
-      <Footer />
-    </userContext.Provider>
+    </Provider>
   )
 };
 
