@@ -14,7 +14,6 @@ export default function HeaderComponent() {
     const [buttonText, setButtonText] = useState('LogIn');
 
     const cart = useSelector(state => state.cart.item);
-    console.log(cart);
 
     function handleLoginClick() {
         if (buttonText === 'LogIn') setButtonText('Log Out')

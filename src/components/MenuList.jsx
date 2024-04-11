@@ -10,7 +10,7 @@ export function MenuList({ menu: { card: { info } } }) {
 
     function handleAddToCartItem() {
         // dispatching and action - addItem
-        dispatch(addItem(name));
+        dispatch(addItem(info));
     };
 
     return (
@@ -30,7 +30,7 @@ export function MenuList({ menu: { card: { info } } }) {
             <div className="relative md:w-[20%] w-auto h-auto">
                 <img src={`${MENU_IMAGE_URL}${imageId}`} alt={`A plate of ${name}`} className="w-full h-[85%] my-0 mx-auto rounded-md" />
 
-                <Button variants="bg-white px-[1.25rem] py-[0.3rem] absolute font-[700] transition-all duration-200 ease-in-out left-[2.8rem] bottom-[0.2rem] uppercase hover:shadow-md hover:text-green-600" onClick={handleAddToCartItem}>Add</Button>
+                <Button variants="bg-white px-[1.25rem] py-[0.3rem] absolute font-[700] transition-all duration-200 ease-in-out left-[2.8rem] bottom-[0.2rem] uppercase hover:shadow-md hover:text-green-600 active:bg-green-600 active:text-white active:font-bold" onClick={handleAddToCartItem}>Add</Button>
             </div>
         </li>
     );
