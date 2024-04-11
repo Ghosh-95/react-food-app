@@ -5,12 +5,16 @@ import Button from "./Button";
 import onlineImage from '/img/online.png';
 import offlineImage from '/img/offline.png';
 import userContext from "../utils/userContext";
+import { useSelector } from 'react-redux';
 
 export default function HeaderComponent() {
     const networkStatus = useOnlineStatus();
     const { userName } = useContext(userContext);
 
     const [buttonText, setButtonText] = useState('LogIn');
+
+    const cart = useSelector(state => state.cart.item);
+    console.log(cart);
 
     function handleLoginClick() {
         if (buttonText === 'LogIn') setButtonText('Log Out')
@@ -39,7 +43,7 @@ export default function HeaderComponent() {
                     <li><Link className="text-black" to="/">Home</Link></li>
                     <li><Link className="text-black" to="/about">About Us</Link></li>
                     <li><Link className="text-black" to="/contact">Contact Us</Link></li>
-                    <li> <Link to="/cart">Cart <span className="text-[#FA7070]">0</span></Link></li>
+                    <li> <Link to="/cart">Cart <span className="text-red-600 font-bold">({cart.length})</span></Link></li>
                 </ul>
 
 
