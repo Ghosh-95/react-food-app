@@ -10,13 +10,12 @@ const cartSlices = createSlice({
             state.item.push(action.payload);
         },
 
-        // TODO: Change the removeItem and clearItem methods
-        removeItem: function (state) {
-            state.item.pop();
+        removeItem: function (state, action) {
+            state.item.splice(state.item.indexOf(action.payload), 1);
         },
 
         clearItem: function (state) {
-            state.item.length = 0;
+            state.item.splice(0, state.item.length);
         }
     },
 });

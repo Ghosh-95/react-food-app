@@ -1,6 +1,6 @@
 import { Suspense, lazy, useEffect, useState } from 'react';
 import { Outlet, createBrowserRouter } from 'react-router-dom';
-import Provider from 'react-redux';
+import { Provider } from 'react-redux';
 
 import HeaderComponent from './Header';
 import MainComponent from './MainComponent';
