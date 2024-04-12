@@ -1,4 +1,6 @@
+import { removeItem } from '../utils/cartSlices';
 import { MENU_IMAGE_URL } from '../utils/data';
+import { useDispatch } from 'react-redux';
 
 function CartButton({ children, variants }) {
     return (
@@ -7,6 +9,12 @@ function CartButton({ children, variants }) {
 };
 
 export default function CartList({ itemData }) {
+    const dispatch = useDispatch();
+
+    function handleDeleteCartItem() {
+        dispatch(removeItem(itemData));
+    }
+
     return (
         <li className="my-4 flex items-center justify-between py-[0.5rem] px-7 roudnded-md shadow-lg bg-[#f8f3f3]">
             <div className='w-[50%] flex justify-between items-center'>
@@ -19,7 +27,7 @@ export default function CartList({ itemData }) {
                 <p className='mx-3'>1</p>
                 <CartButton>+</CartButton>
             </div>
-            <button className='w-[2rem] transition-all duration-200 ease-in-out hover:scale-110'><i className='fa-solid fa-trash-can text-xl text-red-600'></i></button>
+            <button className='w-[2rem] transition-all duration-200 ease-in-out hover:scale-110'><i className='fa-solid fa-trash-can text-xl text-red-600' onClick={handleDeleteCartItem}></i></button>
         </li>
     )
 }
