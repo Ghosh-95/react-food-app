@@ -4,7 +4,7 @@ import Button from "./Button";
 import { useDispatch } from 'react-redux';
 
 export function MenuList({ menu: { card: { info } } }) {
-    const { name, price, imageId, itemAttribute, description } = info;
+    const { name, price, imageId, itemAttribute, description, ratings: { aggregatedRating: { rating } } } = info;
 
     const dispatch = useDispatch();
 
@@ -20,8 +20,10 @@ export function MenuList({ menu: { card: { info } } }) {
                     {itemAttribute.vegClassifier === "VEG" ? (<i className="fa-solid fa-carrot text-green-600 text-sm"></i>) : (<i className="fa-solid fa-hotdog text-red-700 text-sm"></i>)}
                 </span>
                 <h3 className="text-xl my-[0.5rem] text-green-600 font-bold">{name}</h3>
-                <p className="mt-[0.3rem] text-[1rem]">
-                    ₹{price ? price / 100 : info.defaultPrice / 100}
+                <p className="mt-[0.3rem] mb-2 text-[1rem]">
+                    ₹{price ? price / 100 : info.defaultPrice / 100}{rating && '  |'}
+                    <span className="ml-1">{rating && <i className="fa-solid fa-star text-green-600 mx-1"></i>}{rating}</span>
+
                 </p>
 
                 <p className="text-sm">{description && description.length > 200 ? `${description.substring(0, 200)}...` : description}</p>
