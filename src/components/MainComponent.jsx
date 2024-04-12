@@ -70,11 +70,11 @@ export default function MainComponent() {
                 </form>
 
                 <Button
-                    variants="text-white mt-3 md:ml-[8.3rem] ml-[4rem] bg-[#fa7070] font-[1rem] active:bg-[#963118]"
+                    variants="text-white mt-3 md:ml-[8.3rem] ml-[4rem] bg-[#fa7070] font-[1rem] active:bg-[#963118] hover:bg-[#d45a3b]"
                     onClick={handleAllRestaurant}>Top Restaurants
                 </Button>
                 <Button
-                    variants="text-white mt-3 ml-3 bg-[#fa7070] font-[1rem] active:bg-[#963118]"
+                    variants="text-white mt-3 ml-3 bg-[#fa7070] font-[1rem] active:bg-[#963118]  hover:bg-[#d45a3b]"
                     onClick={handleTopRestaurant}>All Restaurants
                 </Button>
                 <div className="max-w-[75rem] my-[5rem] mx-auto flex justify-center items-center flex-wrap gap-[2rem]">
