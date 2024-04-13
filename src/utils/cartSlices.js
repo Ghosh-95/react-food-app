@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, current } from '@reduxjs/toolkit';
 
 const cartSlices = createSlice({
     name: "cart",
@@ -11,7 +11,9 @@ const cartSlices = createSlice({
         },
 
         removeItem: function (state, action) {
-            state.item.splice(state.item.indexOf(action.payload), 1);
+            const indexToRemove = current(state).item.findIndex(it => it.id === action.payload.id);
+
+            state.item.splice(indexToRemove, 1);
         },
 
         clearItem: function (state) {
