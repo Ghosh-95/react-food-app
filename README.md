@@ -103,6 +103,10 @@ Redux is a pattern and library for managing and updating application state, usin
 
 Read about Redux Toolkit [here](https://redux-toolkit.js.org/)
 
+A little explanation on Redux architecture:
+
+![redux structure explanation](./Redux%20architecture.png)
+
 ### TODO
 - Install Redux toolkit : @reduxjs/toolkit
 - Build a Redux Store
@@ -151,3 +155,16 @@ The keys in this object will be used to generate string action type constants, a
 
 `useDispatch` hoook lets you dispatch an action and returns a function. Whatever you will pass in the action will go the reducer functions in the slices and you can access the value in 'action.payload'.\
 Whenever a certain action is dispatched, redux will create an object with two properties: type (the action type) and payload (what is passed with the action).
+
+Some points to note about redux-toolkit:
+- Use the useSelector() hook carefully. Subscribe only to the right element, element that you need to subscribe, not it's parent or anything else.
+- Previously redux didn't allow us to modify the state in a slice, we had to made a copy of the state and then working with duplicate version of the state. And it was mandatory to return the state. But redux-toolkit insists to modify the state (but behind the scene redux does all the ancient methods on state so that developers don't have to do it) and it doesn't require to return anything.
+- Redux uses 'Immer' behind the scene to manage (write and modify immutable) states. **Immer** (German for: *always*) is a tiny package that allows you to work with immutable state in a more convenient way.
+- `current`: It is function from 'Immer' library, which takes a snapshot of the current state of a slice. This function is widely used to print the current state during debugging. The state it returns is read-only, you cannot modify the current state.
+    ```javascript
+    sliceReducer: function(state, action) {
+        const currentState = current(state);
+        console.log(currentState);
+    }
+    ```
+- Redux allows us to either mutate the original state or return a new state.
