@@ -2,7 +2,7 @@ import ListAnchor from "./List";
 
 export default function Footer() {
     return (
-        <footer className="w-full bg-[#FA7070] text-[#FEFDED] flex justify-around py-3">
+        <footer className="w-[97%] mx-auto rounded-t-xl bg-[#FA7070] text-[#FEFDED] flex justify-around py-3">
             <ul>
                 <ListAnchor icon={"instagram"}>Instagram</ListAnchor>
                 <ListAnchor icon={"youtube"}>YouTube</ListAnchor>

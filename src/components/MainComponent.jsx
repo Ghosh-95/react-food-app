@@ -52,7 +52,7 @@ export default function MainComponent() {
     return dataObject.length === 0 ? (<Shimmer />) : (
         <>
             <main className='relative'>
-                <form className="w-[80%] py-12 text-[1.2rem] text-white my-0 mx-auto" action="">
+                <form id="search-form" className="w-[80%] py-12 text-[1.2rem] text-white my-0 mx-auto" action="">
 
                     <input
                         onChange={(e) => setInputText(e.target.value)}
@@ -71,11 +71,11 @@ export default function MainComponent() {
 
                 <Button
                     variants="text-white mt-3 md:ml-[8.3rem] ml-[4rem] bg-[#fa7070] font-[1rem] active:bg-[#963118] hover:bg-[#d45a3b]"
-                    onClick={handleAllRestaurant}>Top Restaurants
+                    onClick={handleTopRestaurant}>Top Restaurants
                 </Button>
                 <Button
                     variants="text-white mt-3 ml-3 bg-[#fa7070] font-[1rem] active:bg-[#963118]  hover:bg-[#d45a3b]"
-                    onClick={handleTopRestaurant}>All Restaurants
+                    onClick={handleAllRestaurant}>All Restaurants
                 </Button>
                 <div className="max-w-[75rem] my-[5rem] mx-auto flex justify-center items-center flex-wrap gap-[2rem]">
 
