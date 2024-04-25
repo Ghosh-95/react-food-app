@@ -24,11 +24,19 @@ const cartSlices = createSlice({
         },
 
         incrementQuantity: function (state, action) {
+            const index = current(state).item.findIndex(it => it.id === action.payload.id);
+            if (index < 0) state.item[index].quantity += action.payload.qty;
+
+        },
+
+        decrementQuantity: function (state, action) {
+            const index = current(state).item.findIndex(it => it.id === action.payload.id);
+            if (index < 0) state.item[index].quantity -= action.payload.qty;
 
         }
     },
 });
 
-export const { addItem, removeItem, clearItem, incrementQuantity } = cartSlices.actions;
+export const { addItem, removeItem, clearItem, incrementQuantity, decrementQuantity } = cartSlices.actions;
 
 export default cartSlices.reducer;
