@@ -168,3 +168,49 @@ Some points to note about redux-toolkit:
     }
     ```
 - Redux allows us to either mutate the original state or return a new state.
+
+# Vitest - Testing
+
+Install vitest as Dev-dependency:
+```bash
+npm i -D vitest
+```
+Add a new script in the `package.json` file:
+```json
+"script": {
+    "test": "vitest"
+}
+```
+As we are using *vite* we don't need to install `jsdom` (an environment to rener markup for testing), we can just configure in `vite.config.js` file:
+```js
+test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: ['./src/__test__/setup.js'], // a file that can be used as primary setup file for vitest
+  }
+
+  // create a setup file and write followings:
+ import { cleanup } from "@testing-library/react";
+ import { afterEach } from "vitest";
+ import "@testing-library/jest-dom/vitest";
+
+ afterEach(() => {
+   cleanup();
+ });
+
+ // create a test file with .test.js/jsx extension
+ import { describe, it, expect } from "vitest";
+ import sum from './sum.js';
+
+ describe("Sum function", () => {
+    it("checks the sum function", () => {
+        expect(sum(2, 3)).toBe(5);
+    })
+ })
+```
+We can test our files without installing any other libraries. Create a file with a suffix 'test', e.g *App.test.jsx*
+
+Then we need to install additional library - React Testing Library (RTL):
+```bash
+npm install -D @testing-library/jest-dom @testing-library/react
+```
