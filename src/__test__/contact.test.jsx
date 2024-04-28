@@ -14,5 +14,10 @@ describe('Contact', () => {
     it("checks for input id", () => {
         render(<Contact />);
         expect(screen.getByLabelText('Name')).toHaveAttribute('id', 'user-name');
-    })
+    });
+    it("searches for input boxes", () => {
+        render(<Contact />);
+        expect(screen.getAllByRole('textbox').length).toBe(3);
+    });
+
 });
