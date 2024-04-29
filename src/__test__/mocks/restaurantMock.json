@@ -1,0 +1,58 @@
+{
+    "info": {
+        "id": "577516",
+        "name": "UBQ by Barbeque Nation",
+        "cloudinaryImageId": "o75wwmkeo5gez6awxlm4",
+        "locality": "New Market",
+        "areaName": "Central Kolkata",
+        "costForTwo": "₹300 for two",
+        "cuisines": [
+            "Barbecue",
+            "Biryani",
+            "Kebabs",
+            "Mughlai",
+            "Desserts"
+        ],
+        "avgRating": 4.1,
+        "parentId": "10804",
+        "avgRatingString": "4.1",
+        "totalRatingsString": "100+",
+        "sla": {
+            "deliveryTime": 51,
+            "lastMileTravel": 2.5,
+            "serviceability": "SERVICEABLE",
+            "slaString": "50-55 mins",
+            "lastMileTravelString": "2.5 km",
+            "iconType": "ICON_TYPE_EMPTY"
+        },
+        "availability": {
+            "nextCloseTime": "2024-04-29 23:30:00",
+            "opened": true
+        },
+        "badges": {},
+        "isOpen": true,
+        "type": "F",
+        "badgesV2": {
+            "entityBadges": {
+                "imageBased": {},
+                "textBased": {},
+                "textExtendedBadges": {}
+            }
+        },
+        "aggregatedDiscountInfoV3": {
+            "header": "50% OFF",
+            "subHeader": "UPTO ₹100"
+        },
+        "differentiatedUi": {
+            "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+            "differentiatedUiMediaDetails": {
+                "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+                "lottie": {},
+                "video": {}
+            }
+        },
+        "reviewsSummary": {},
+        "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+        "restaurantOfferPresentationInfo": {}
+    }
+}
