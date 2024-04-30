@@ -41,8 +41,8 @@ export default function MainComponent() {
     };
 
     function handleTopRestaurant() {
-        const newDataObject = filteredObj.filter(data => data.info.avgRating > 4.2);
-        setDataObject(newDataObject);
+        const newDataObject = filteredObj.filter(data => +data.info.avgRating > 4.2);
+        setFilteredObj(newDataObject);
     };
 
     const networkStatus = useOnlineStatus();
