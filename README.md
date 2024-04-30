@@ -214,3 +214,44 @@ Then we need to install additional library - React Testing Library (RTL):
 ```bash
 npm install -D @testing-library/jest-dom @testing-library/react
 ```
+RTL provides some utility functin such as *render*, *screen* etc. We can use them while testing.
+
+Essentially, a unit test is a method that instantiates a small portion of our application and verifies its behavior independently from other parts. A typical unit test contains 3 phases: First, it initializes a small piece of an application it wants to test (also known as the system under test, or SUT), then it applies some stimulus to the system under test (usually by calling a method on it), and finally, it observes the resulting behavior. If the observed behavior is consistent with the expectations, the unit test passes, otherwise, it fails, indicating that there is a problem somewhere in the system under test. These three unit test phases are also known as `Arrange`, `Act` and `Assert`, or simply **AAA**.
+
+This is a test case for a React component:
+```js
+import { render, screen } from "@testing-library/react";
+import { describe, expect, it } from "vitest";
+import { describe } from "vitest";
+import Header from "../components/Header"
+
+describe("Header component", () => {
+    it("should render header component", () => {
+        // Rendering the compoent to screen (ARRANGE)
+        render(<Header />);
+
+        // Get/Query/Find something in that renderd component (ACT)
+        const heading = screen.getByTextContent("My Heading");
+
+        // Assertion
+        expect(heading).toBeInTheDocument();
+    })
+});
+```
+> If the compoent uses some external libraries/functions such as redux-toolkit, react-router-dom etc. It is mandatory to importh them in the test file also. Otherwise the test will fail in the Arrange phase (while rendering).
+```js
+/* Other imports */
+import { Provider } from "redux-toolkit";
+import { BrowserRouter } from "react-router-dom";
+imporst { appStore } from "./utls/reduxStore/appStore.js";
+
+/* Other codes here */
+render(
+ <BrowserRouter>
+     <Provider store={appStore}>
+         <Header />
+     </Provider>
+ </BrowserRouter>
+)
+```
+`fireEvent`: A functionality provided by React Testing library, used for simulating an event fire while, for example, clicking on a button.
