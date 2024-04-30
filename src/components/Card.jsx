@@ -5,7 +5,7 @@ export default function RestaurantCard({ props: { info } }) {
     const offers = useDisplayOffer(info);
     return (
         <>
-            <div className='relative'>
+            <div data-testid="test-card" className='relative'>
                 <img src={`${ASSET_URL}/${info.cloudinaryImageId}`} alt={info.cuisines.join(', ') + ' image'} className="w-full h-[12.5rem] object-cover rounded-t-md transition-all duration-300 hover:scale-105 opacity-90" />
                 <p className={offers !== '' ? 'absolute bg-green-500 p-1 rounded-r-lg text-white font-bold text-xl top-2' : 'hidden'}>{offers}</p>
             </div>

@@ -57,6 +57,7 @@ export default function MainComponent() {
                     <input
                         onChange={(e) => setInputText(e.target.value)}
                         type="search"
+                        data-testid="search-input"
                         name="search-food"
                         id="search-bar"
                         className="sm:w-[70%] text-black mr-[1.8rem] py-[0.2rem] md:py-[0.5rem] px-[1rem] border-[1px] border-solid border-[#fa7070] outline-none rounded-md lg:w-[75%]"
