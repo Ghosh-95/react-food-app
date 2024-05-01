@@ -23,7 +23,7 @@ export default function CartList({ itemData }) {
     };
 
     return (
-        <li className="my-4 flex items-center justify-between py-[0.5rem] px-7 roudnded-md shadow-lg bg-[#f8f3f3]">
+        <li className="my-4 flex items-center justify-between py-[0.5rem] px-7 roudnded-md shadow-lg bg-[#f8f3f3]" data-testid="cart-food-item">
             <div className='w-[50%] flex justify-between items-center'>
                 <img className='w-[34%] rounded-full' src={`${MENU_IMAGE_URL}${imageId}`} alt={`${name} image`} />
                 <p className='w-[42%]'>{name}</p>

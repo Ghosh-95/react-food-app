@@ -42,7 +42,7 @@ export default function HeaderComponent() {
                     <li><Link className="text-black" to="/">Home</Link></li>
                     <li><Link className="text-black" to="/about">About Us</Link></li>
                     <li><Link className="text-black" to="/contact">Contact Us</Link></li>
-                    <li> <Link to="/cart">Cart <span className="text-red-600 font-bold">({cart.length})</span></Link></li>
+                    <li> <Link to="/cart" data-testid="cart-item">Cart <span className="text-red-600 font-bold">({cart.length})</span></Link></li>
                 </ul>
 
 

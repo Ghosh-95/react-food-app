@@ -14,7 +14,7 @@ export function MenuList({ menu: { card: { info } } }) {
     };
 
     return (
-        <li className="menu-lists flex justify-between border-b-[1px] border-b-solid border-b-[#919090] py-[1rem] px-0 mb-[0.5rem]">
+        <li className="menu-lists flex justify-between border-b-[1px] border-b-solid border-b-[#919090] py-[1rem] px-0 mb-[0.5rem]" data-testid="food-item">
             <div className="w-[70%] h-auto">
                 <span className="bg-white p-2 shadow-lg">
                     {itemAttribute.vegClassifier === "VEG" ? (<i className="fa-solid fa-carrot text-green-600 text-sm"></i>) : (<i className="fa-solid fa-hotdog text-red-700 text-sm"></i>)}
