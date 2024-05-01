@@ -254,4 +254,34 @@ render(
  </BrowserRouter>
 )
 ```
+- We can use getByTestId() to get an element by providing a dataset attribute to the element:
+```js
+<p data-testid="my-para">React is the best.</p>
+
+// inside test file
+screen.getByTestId("my-para");
+```
+
 `fireEvent`: A functionality provided by React Testing library, used for simulating an event fire while, for example, clicking on a button.
+```js
+// Syntax
+fireEvent.eventName(targetElement, {
+    /* It is an object simulating what we get inside a event listner function
+    e.g {targe : { value: "Burger" }} simulates e.target.value = "Burger" in an usual js envent listner
+    */ 
+})
+```
+- You can simulate a fetch async funtion in test file:
+```js
+import { vi } from "vitest";
+import { MOCK_DATA } from "data.json";
+
+global.fetch = vi.fn(() => {
+    return {
+        json: () => new Promise(resolve => resolve(MOCK_DATA));
+    };
+});
+```
+
+A coverage report for the application:
+![coverage-report](./public/img/coverage-report.png)
